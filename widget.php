@@ -29,7 +29,7 @@ class MEC_Addon_Upcoming_Events extends WP_Widget {
         extract( $args, EXTR_SKIP );
 
         $count = esc_attr( $instance['count'] );
-        $count = 0 < $count && $count < 10 ? $count : 2;
+        $count = 0 < $count && $count < 11 ? $count : 5;
         $loop  = new WP_Query( array(
             'post_type'      => 'mec-events',
             'posts_per_page' => $count,
@@ -40,7 +40,7 @@ class MEC_Addon_Upcoming_Events extends WP_Widget {
                 array(
                     'key'     => 'mec_start_date',
                     'value'   => date('Y-m-d', time()),
-                    'compare' => '>',
+                    'compare' => '>=',
                 ),
             ),
         ) );
@@ -56,7 +56,7 @@ class MEC_Addon_Upcoming_Events extends WP_Widget {
 
             while ( $loop->have_posts() ): $loop->the_post();
                 global $post;
-                $output = '<a class="title" href="' . get_permalink() . '">' . get_the_title() . '</a> <span class="date">' . date( 'j. F Y', date_timestamp_get(date_create_immutable_from_format('Y-m-d', get_post_meta(get_the_ID(),'mec_start_date',true)))) . '</span> ';
+                $output = '<a class="title" href="' . get_permalink() . '">' . get_the_title() . '</a> <span class="date">' . date( 'j.m.Y', date_timestamp_get(date_create_immutable_from_format('Y-m-d', get_post_meta(get_the_ID(),'mec_start_date',true)))) . '</span> ';
                 echo '<li class="listing-item">' . apply_filters( 'mec_addon_events_manager_upcoming_widget_output', $output, $post ) . '</li>';
             endwhile;
 
