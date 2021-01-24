@@ -10,6 +10,9 @@ Add a upcoming events widget.
 
 == Changelog ==
 
+= 1.0.3 =
+* more events link configurable as parameter
+
 = 1.0.2 =
 * date output is now localized
 * date format as parameter

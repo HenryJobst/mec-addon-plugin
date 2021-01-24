@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: MEC Addon Plugin\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-01-23 10:59+0000\n"
-"PO-Revision-Date: 2021-01-23 11:11+0000\n"
+"PO-Revision-Date: 2021-01-24 10:19+0000\n"
 "Last-Translator: admin\n"
 "Language-Team: Deutsch\n"
 "Language: de_DE\n"
@@ -18,14 +18,14 @@ msgstr ""
 #. Description of the plugin
 msgid "Add some special enhancements to modern events calendar lite plugin."
 msgstr ""
-"Fügt ein paar Erweiterungen zum Modern Events Calendar Lite Plugin hinzu."
+"Fügt ein paar Erweiterungen zum Modern Events Calendar (Lite) Plugin hinzu."
 
 # keine Übersetzung nötig
-#: widget.php:114
+#: widget.php:116
 msgid "d. F Y"
 msgstr ""
 
-#: widget.php:121
+#: widget.php:124
 msgid "Date Format:"
 msgstr "Datumsformat:"
 
@@ -34,7 +34,7 @@ msgstr "Datumsformat:"
 msgid "Henry Jobst"
 msgstr ""
 
-#: widget.php:119
+#: widget.php:121
 msgid "How Many:"
 msgstr "Anzahl der Einträge:"
 
@@ -48,18 +48,26 @@ msgstr ""
 msgid "MEC Addon Plugin"
 msgstr ""
 
-#: widget.php:120
+#: widget.php:123
+msgid "More Link:"
+msgstr "Alle Link:"
+
+#: widget.php:122
 msgid "More Text:"
 msgstr "Text für den \"mehr\"-Link"
 
-#: widget.php:113
+#: widget.php:115
+msgid "Permalink to the page that show all events"
+msgstr "Permalink zur Seite die alle Veranstaltungen enthält"
+
+#: widget.php:114
 msgid "Show All"
 msgstr "Alle"
 
-#: widget.php:118
+#: widget.php:120
 msgid "Title:"
 msgstr "Titel:"
 
-#: widget.php:17 widget.php:111
+#: widget.php:17 widget.php:112
 msgid "Upcoming Events"
 msgstr "Kommende Veranstaltungen"

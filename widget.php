@@ -67,8 +67,8 @@ class MEC_Addon_Upcoming_Events extends WP_Widget {
                 echo '<li class="listing-item">' . apply_filters( 'mec_addon_events_manager_upcoming_widget_output', $output, $post ) . '</li>';
             endwhile;
 
-            if ( $instance['more_text'] ) {
-                echo '<li class="listing-item"><a href="' . get_post_type_archive_link('mec-events') . '">' . esc_attr( $instance['more_text'] ) . '</a></li>';
+            if ( $instance['more_text'] && $instance['more_link']) {
+                echo '<li class="listing-item"><a href="' . esc_attr( $instance['more_link'] ) . '">' . esc_attr( $instance['more_text'] ) . '</a></li>';
             }
             echo '</ul>';
 
@@ -93,6 +93,7 @@ class MEC_Addon_Upcoming_Events extends WP_Widget {
         $instance['title']     = wp_kses_post( $new_instance['title'] );
         $instance['count']     = (int) esc_attr( $new_instance['count'] );
         $instance['more_text'] = esc_attr( $new_instance['more_text'] );
+        $instance['more_link'] = esc_attr( $new_instance['more_link'] );
         $instance['date_format'] = esc_attr( $new_instance['date_format'] );
 
         return $instance;
@@ -111,6 +112,7 @@ class MEC_Addon_Upcoming_Events extends WP_Widget {
             'title'     => __( 'Upcoming Events', 'mec-addon-plugin'),
             'count'     => 3,
             'more_text' => __( 'Show All', 'mec-addon-plugin'),
+            'more_link' => __( 'Permalink to the page that show all events', 'mec-addon-plugin'),
             'date_format' => __( 'd. F Y', 'mec-addon-plugin'),
         );
         $instance = wp_parse_args( (array) $instance, $defaults );
@@ -118,6 +120,7 @@ class MEC_Addon_Upcoming_Events extends WP_Widget {
         echo '<p><label for="' . $this->get_field_id( 'title' ) . '">' . esc_html__( 'Title:', 'mec-addon-plugin' ) . ' <input class="widefat" id="' . $this->get_field_id( 'title' ) . '" name="' . $this->get_field_name( 'title' ) . '" value="' . esc_attr( $instance['title'] ) . '" /></label></p>';
         echo '<p><label for="' . $this->get_field_id( 'count' ) . '">' . esc_html__( 'How Many:', 'mec-addon-plugin' ) . ' <input class="widefat" id="' . $this->get_field_id( 'count' ) . '" name="' . $this->get_field_name( 'count' ) . '" value="' . esc_attr( $instance['count'] ) . '" /></label></p>';
         echo '<p><label for="' . $this->get_field_id( 'more_text' ) . '">' . esc_html__( 'More Text:', 'mec-addon-plugin' ) . ' <input class="widefat" id="' . $this->get_field_id( 'more_text' ) . '" name="' . $this->get_field_name( 'more_text' ) . '" value="' . esc_attr( $instance['more_text'] ) . '" /></label></p>';
+        echo '<p><label for="' . $this->get_field_id( 'more_link' ) . '">' . esc_html__( 'More Link:', 'mec-addon-plugin' ) . ' <input class="widefat" id="' . $this->get_field_id( 'more_link' ) . '" name="' . $this->get_field_name( 'more_link' ) . '" value="' . esc_attr( $instance['more_link'] ) . '" /></label></p>';
         echo '<p><label for="' . $this->get_field_id( 'date_format' ) . '">' . esc_html__( 'Date Format:', 'mec-addon-plugin' ) . ' <input class="widefat" id="' . $this->get_field_id( 'date_format' ) . '" name="' . $this->get_field_name( 'date_format' ) . '" value="' . esc_attr( $instance['date_format'] ) . '" /></label></p>';
 
     }
