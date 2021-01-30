@@ -17,7 +17,8 @@ class MEC_Addon_Upcoming_Events extends WP_Widget {
         parent::__construct( 'upcoming-events-widget', __( 'Upcoming Events', 'mec-addon-plugin' ), $widget_ops );
     }
 
-    function add_link_button($instance, $url, $button_text, $title_text) {
+    function add_link_button($instance, $url, $button_text, $title_text): string
+    {
         $link_class = 'button';
         if ($instance['urls_class']) {
             $link_class = $instance['urls_class'];
@@ -79,7 +80,7 @@ class MEC_Addon_Upcoming_Events extends WP_Widget {
                 $output = '';
 
                 if ($instance['show_sports_type']) {
-                    $post_content = get_post_content();
+                    $post_content = get_the_content();
                     if ($post_content) {
                         $start_pos = strpos($post_content, '<p>Sport: ');
                         if ($start_pos) {
@@ -87,7 +88,7 @@ class MEC_Addon_Upcoming_Events extends WP_Widget {
                             if ($end_pos) {
                                 $sport_type = substr($post_content, $start_pos, $end_pos - $start_pos);
                                 if ($sport_type) {
-                                    $output += '<span> ' . $sport_type . ' </span>';
+                                    $output = $output . '<span> ' . $sport_type . ' </span>';
                                 }
                             }
                         }
@@ -107,17 +108,17 @@ class MEC_Addon_Upcoming_Events extends WP_Widget {
                 }
 
                 $formated_event_date = wp_date( $date_format, $event_date);
-                $output += '<a class="title" href="' . get_permalink() . '">' . get_the_title() . '</a> <span class="date">' . $formated_event_date . '</span> ';
+                $output = $output . '<a class="title" href="' . get_permalink() . '">' . get_the_title() . '</a> <span class="date">' . $formated_event_date . '</span> ';
 
                 if ($instance['show_urls']) {
                     if ($announcement_url) {
-                        $output += $this->add_link_button($instance, $announcement_url, __('A', 'mec-addon-plugin'), __('Ausschreibung', 'mec-addon-plugin') );
+                        $output = $output . $this->add_link_button($instance, $announcement_url, __('A', 'mec-addon-plugin'), __('Ausschreibung', 'mec-addon-plugin') );
                     }
                     if ($registration_url) {
-                        $output += $this->add_link_button($instance, $registration_url, __('M', 'mec-addon-plugin'), __('Meldung', 'mec-addon-plugin'));
+                        $output = $output . $this->add_link_button($instance, $registration_url, __('M', 'mec-addon-plugin'), __('Meldung', 'mec-addon-plugin'));
                     }
                     if ($start_list_url) {
-                        $output += $this->add_link_button($instance, $start_list_url, __('S', 'mec-addon-plugin'), __('Startliste', 'mec-addon-plugin'));
+                        $output = $output . $this->add_link_button($instance, $start_list_url, __('S', 'mec-addon-plugin'), __('Startliste', 'mec-addon-plugin'));
                     }
                 }
 
@@ -145,7 +146,8 @@ class MEC_Addon_Upcoming_Events extends WP_Widget {
      *
      * @return array The validated and (if necessary) amended settings
      **/
-    function update( $new_instance, $old_instance ) {
+    function update( $new_instance, $old_instance ): array
+    {
         $instance = $old_instance;
 
         $instance['title']     = wp_kses_post( $new_instance['title'] );
