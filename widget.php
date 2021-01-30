@@ -17,8 +17,12 @@ class MEC_Addon_Upcoming_Events extends WP_Widget {
         parent::__construct( 'upcoming-events-widget', __( 'Upcoming Events', 'mec-addon-plugin' ), $widget_ops );
     }
 
-    function add_link_button($url, $button_text) {
-        return ' ' . '<a class="button" href="' . $url . '">' . '<span>' . $button_text . '</span>' . '</a>';
+    function add_link_button($instance, $url, $button_text, $title_text) {
+        $link_class = 'button';
+        if ($instance['urls_class']) {
+            $link_class = $instance['urls_class'];
+        }
+        return ' ' . '<a class="'. $link_class .'" title="'. $title_text . '" href="' . $url . '">' . '<span>' . $button_text . '</span>' . '</a>';
     }
 
     /**
@@ -107,13 +111,13 @@ class MEC_Addon_Upcoming_Events extends WP_Widget {
 
                 if ($instance['show_urls']) {
                     if ($announcement_url) {
-                        $output += $this->add_link_button($announcement_url, 'A');
+                        $output += $this->add_link_button($instance, $announcement_url, __('A', 'mec-addon-plugin'), __('Ausschreibung', 'mec-addon-plugin') );
                     }
                     if ($registration_url) {
-                        $output += $this->add_link_button($registration_url, 'M');
+                        $output += $this->add_link_button($instance, $registration_url, __('M', 'mec-addon-plugin'), __('Meldung', 'mec-addon-plugin'));
                     }
                     if ($start_list_url) {
-                        $output += $this->add_link_button($start_list_url, 'S');
+                        $output += $this->add_link_button($instance, $start_list_url, __('S', 'mec-addon-plugin'), __('Startliste', 'mec-addon-plugin'));
                     }
                 }
 
@@ -151,6 +155,7 @@ class MEC_Addon_Upcoming_Events extends WP_Widget {
         $instance['date_format'] = esc_attr( $new_instance['date_format'] );
         $instance['show_sports_type'] = esc_attr( $new_instance['show_sports_type'] );
         $instance['show_urls'] = esc_attr( $new_instance['show_urls'] );
+        $instance['urls_class'] = esc_attr( $new_instance['urls_class'] );
 
         return $instance;
     }
@@ -172,6 +177,7 @@ class MEC_Addon_Upcoming_Events extends WP_Widget {
             'date_format' => __( 'd. F Y', 'mec-addon-plugin'),
             'show_sports_type' => true,
             'show_urls' => true,
+            'urls_class' => 'button',
         );
         $instance = wp_parse_args( (array) $instance, $defaults );
 
@@ -182,6 +188,7 @@ class MEC_Addon_Upcoming_Events extends WP_Widget {
         echo '<p><label for="' . $this->get_field_id( 'date_format' ) . '">' . esc_html__( 'Date Format:', 'mec-addon-plugin' ) . ' <input class="widefat" id="' . $this->get_field_id( 'date_format' ) . '" name="' . $this->get_field_name( 'date_format' ) . '" value="' . esc_attr( $instance['date_format'] ) . '" /></label></p>';
         echo '<p><label for="' . $this->get_field_id( 'show_sports_type' ) . '">' . esc_html__( 'Show Sports Type:', 'mec-addon-plugin' ) . ' <input class="widefat" id="' . $this->get_field_id( 'show_sports_type' ) . '" name="' . $this->get_field_name( 'show_sports_type' ) . '" value="' . esc_attr( $instance['show_sports_type'] ) . '" /></label></p>';
         echo '<p><label for="' . $this->get_field_id( 'show_urls' ) . '">' . esc_html__( 'Show Urls:', 'mec-addon-plugin' ) . ' <input class="widefat" id="' . $this->get_field_id( 'show_urls' ) . '" name="' . $this->get_field_name( 'show_urls' ) . '" value="' . esc_attr( $instance['show_urls'] ) . '" /></label></p>';
+        echo '<p><label for="' . $this->get_field_id( 'urls_class' ) . '">' . esc_html__( 'Urls Class:', 'mec-addon-plugin' ) . ' <input class="widefat" id="' . $this->get_field_id( 'urls_class' ) . '" name="' . $this->get_field_name( 'urls_class' ) . '" value="' . esc_attr( $instance['urls_class'] ) . '" /></label></p>';
 
     }
 }
