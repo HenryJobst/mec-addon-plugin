@@ -2,7 +2,7 @@
 /*
 Plugin Name: MEC Addon Plugin
 Description: Add some special enhancements to modern events calendar lite plugin.
-Version:     1.0.4
+Version:     1.0.5
 Author:      Henry Jobst
 Author URI: https://github.com/HenryJobst
 Text Domain: mec-addon-plugin
@@ -29,4 +29,5 @@ SOFTWARE.
 
 defined('ABSPATH') or die;
 
-require_once plugin_dir_path(__FILE__). '/widget.php';
+require_once plugin_dir_path(__FILE__). '/upcoming-events-widget.php';
+require_once plugin_dir_path(__FILE__). '/past-events-widget.php';
