@@ -1,11 +1,11 @@
 <?php
 /**
- * Widget for upcoming events of modern events calendar lite plugin
+ * Widget for past events of modern events calendar lite plugin
  *
  * @package    MEC-Addon-Plugin
  */
 
-class MEC_Addon_Upcoming_Events extends WP_Widget {
+class MEC_Addon_Past_Events extends WP_Widget {
 
     /**
      * Constructor
@@ -13,8 +13,8 @@ class MEC_Addon_Upcoming_Events extends WP_Widget {
      * @return void
      **/
     function __construct() {
-        $widget_ops = array( 'classname' => 'widget_upcoming_events', 'description' => 'A list of upcoming events.' );
-        parent::__construct( 'upcoming-events-widget', __( 'Upcoming Events', 'mec-addon-plugin' ), $widget_ops );
+        $widget_ops = array( 'classname' => 'widget_past_events', 'description' => 'A list of past events.' );
+        parent::__construct( 'past-events-widget', __( 'Past Events', 'mec-addon-plugin' ), $widget_ops );
     }
 
     /**
@@ -71,14 +71,14 @@ class MEC_Addon_Upcoming_Events extends WP_Widget {
         $loop  = new WP_Query( array(
             'post_type'      => 'mec-events',
             'posts_per_page' => $count,
-            'order'          => 'ASC',
+            'order'          => 'DESC',
             'orderby'        => 'meta_value',
             'meta_key'       => 'mec_start_date',
             'meta_query'     => array(
                 array(
                     'key'     => 'mec_start_date',
                     'value'   => date('Y-m-d', time()),
-                    'compare' => '>=',
+                    'compare' => '<=',
                 ),
             ),
         ) );
@@ -91,7 +91,7 @@ class MEC_Addon_Upcoming_Events extends WP_Widget {
                 echo $before_title . apply_filters( 'widget_title', $title ) . $after_title;
             }
 
-            echo '<ul class="display-post-listing upcomming-events-widget">';
+            echo '<ul class="display-post-listing past-events-widget">';
 
             while ( $loop->have_posts() ): $loop->the_post();
                 global $post;
@@ -118,18 +118,18 @@ class MEC_Addon_Upcoming_Events extends WP_Widget {
                 $output = $output . '<a class="title" href="' . get_permalink() . '">' . get_the_title() . '</a> <span class="date nobr">' . $formated_event_date . '</span> ';
 
                 if ($instance['show_urls']) {
-                    if ($announcement_url = get_post_meta(get_the_ID(), 'om_link_announcement', true)) {
-                        $output = $output . $this->add_link_button($instance, $announcement_url, __('A', 'mec-addon-plugin'), __('Ausschreibung', 'mec-addon-plugin'));
+                    if ($results_url = get_post_meta(get_the_ID(), 'om_link_results', true)) {
+                        $output = $output . $this->add_link_button($instance, $results_url, __('E', 'mec-addon-plugin'), __('Ergebnisse', 'mec-addon-plugin'));
                     }
-                    if ($registration_url = get_post_meta(get_the_ID(), 'om_link_registration', true)) {
-                        $output = $output . $this->add_link_button($instance, $registration_url, __('M', 'mec-addon-plugin'), __('Meldung', 'mec-addon-plugin'));
+                    if ($si_results_url = get_post_meta(get_the_ID(), 'om_link_resultsplits', true)) {
+                        $output = $output . $this->add_link_button($instance, $si_results_url, __('Si', 'mec-addon-plugin'), __('Splittzeiten', 'mec-addon-plugin'));
                     }
-                    if ($start_list_url = get_post_meta(get_the_ID(), 'om_link_startlist', true)) {
-                        $output = $output . $this->add_link_button($instance, $start_list_url, __('S', 'mec-addon-plugin'), __('Startliste', 'mec-addon-plugin'));
+                    if ($rg_results_url = get_post_meta(get_the_ID(), 'om_link_routegadget', true)) {
+                        $output = $output . $this->add_link_button($instance, $rg_results_url, __('R', 'mec-addon-plugin'), __('RouteGadget', 'mec-addon-plugin'));
                     }
                 }
 
-                echo '<li class="listing-item">' . apply_filters( 'mec_addon_events_manager_upcoming_widget_output', $output, $post ) . '</li>';
+                echo '<li class="listing-item">' . apply_filters( 'mec_addon_events_manager_past_widget_output', $output, $post ) . '</li>';
 
             endwhile;
 
@@ -179,7 +179,7 @@ class MEC_Addon_Upcoming_Events extends WP_Widget {
     function form( $instance ) {
 
         $defaults = array(
-            'title'     => __( 'Upcoming Events', 'mec-addon-plugin'),
+            'title'     => __( 'Past Events', 'mec-addon-plugin'),
             'count'     => 3,
             'more_text' => __( 'Show All', 'mec-addon-plugin'),
             'more_link' => __( 'Permalink to the page that show all events', 'mec-addon-plugin'),
@@ -203,8 +203,8 @@ class MEC_Addon_Upcoming_Events extends WP_Widget {
 
 }
 
-function mec_addon_register_upcoming_events_widget() {
-    register_widget( 'MEC_Addon_Upcoming_Events' );
+function mec_addon_register_past_events_widget() {
+    register_widget( 'MEC_Addon_Past_Events' );
 }
 
-add_action( 'widgets_init', 'mec_addon_register_upcoming_events_widget' );
+add_action( 'widgets_init', 'mec_addon_register_past_events_widget' );

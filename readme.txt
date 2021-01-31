@@ -10,6 +10,9 @@ Add a upcoming events widget.
 
 == Changelog ==
 
+= 1.0.5 =
+* add new widget for past events
+
 = 1.0.4 =
 * show sports type configurable as parameter
 * show urls from mec-fields configurable as parameter
