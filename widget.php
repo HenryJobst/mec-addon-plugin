@@ -17,13 +17,37 @@ class MEC_Addon_Upcoming_Events extends WP_Widget {
         parent::__construct( 'upcoming-events-widget', __( 'Upcoming Events', 'mec-addon-plugin' ), $widget_ops );
     }
 
-    function add_link_button($instance, $url, $button_text, $title_text): string
+    /**
+     * @param $instance
+     * @param string $url URL
+     * @param string $button_text Short text for the url button
+     * @param string $title_text Long text for the url button
+     * @return false|string
+     */
+    private function add_link_button(array $instance, string $url, string $button_text, string $title_text): string
     {
         $link_class = 'button';
         if ($instance['urls_class']) {
             $link_class = $instance['urls_class'];
         }
         return ' ' . '<a class="'. $link_class .'" title="'. $title_text . '" href="' . $url . '">' . '<span>' . $button_text . '</span>' . '</a>';
+    }
+
+    /**
+     * @param string $date_format date format
+     * @return false|string
+     */
+    private function get_formated_event_date(string $date_format): string
+    {
+        $formated_event_date = '';
+        $date_field = get_post_meta(get_the_ID(), 'mec_start_date', true);
+        if ($date_field) {
+            $event_date = date_timestamp_get(date_create_immutable_from_format('Y-m-d', $date_field));
+            if ($event_date) {
+                $formated_event_date = wp_date($date_format, $event_date);
+            }
+        }
+        return $formated_event_date;
     }
 
     /**
@@ -58,12 +82,13 @@ class MEC_Addon_Upcoming_Events extends WP_Widget {
                 ),
             ),
         ) );
+
         if ( $loop->have_posts() ):
 
             echo $before_widget;
 
-            if ( $instance['title'] ) {
-                echo $before_title . apply_filters( 'widget_title', $instance['title'] ) . $after_title;
+            if ($title = $instance['title'] ) {
+                echo $before_title . apply_filters( 'widget_title', $title ) . $after_title;
             }
 
             echo '<ul class="display-post-listing">';
@@ -71,53 +96,33 @@ class MEC_Addon_Upcoming_Events extends WP_Widget {
             while ( $loop->have_posts() ): $loop->the_post();
                 global $post;
 
-                $event_date = date_timestamp_get(date_create_immutable_from_format('Y-m-d', get_post_meta(get_the_ID(),'mec_start_date',true)));
-
-                $announcement_url = null;
-                $registration_url = null;
-                $start_list_url = null;
-
                 $output = '';
 
                 if ($instance['show_sports_type']) {
-                    $post_content = get_the_content();
-                    if ($post_content) {
-                        $start_pos = strpos($post_content, '<p>Sport: ');
-                        if ($start_pos) {
-                            $end_pos = strpos($post_content, '</p>');
-                            if ($end_pos) {
-                                $sport_type = substr($post_content, $start_pos, $end_pos - $start_pos);
-                                if ($sport_type) {
-                                    $output = $output . '<span> ' . $sport_type . ' </span>';
-                                }
-                            }
+                    if ($sport_type = get_post_meta(get_the_ID(), 'om_sport', true)) {
+                        $sport_type_url = null;
+                        if ('OL' == $sport_type) {
+                            $sport_type_url = '<img class="wp-image-16984  alignnone" src="https://olberlin.de/wp-content/uploads/2021/01/OL_Logo_bunt-300x261.png" alt="" width="20" height="17" />';
+                        } else if ('MTB-O' == $sport_type) {
+                            $sport_type_url = '<img class="wp-image-16983  alignnone" src="https://olberlin.de/wp-content/uploads/2021/01/MTB_O_Logo_bunt-300x261.png" alt="" width="20" height="17" />';
+                        }
+                        if ($sport_type_url) {
+                            $output = $output . '<span> ' . $sport_type . ' </span>';
                         }
                     }
                 }
 
-                if ($instance['show_urls']) {
-                    $mec_fields = get_post_meta(get_the_ID(), 'mec_fields', true);
-                    if ($mec_fields) {
-                        $urls = unserialize($mec_fields);
-                        if (is_array($urls)) {
-                            $announcement_url = $urls[1];
-                            $registration_url = $urls[2];
-                            $start_list_url = $urls[3];
-                        }
-                    }
-                }
-
-                $formated_event_date = wp_date( $date_format, $event_date);
+                $formated_event_date = $this->get_formated_event_date($date_format);
                 $output = $output . '<a class="title" href="' . get_permalink() . '">' . get_the_title() . '</a> <span class="date">' . $formated_event_date . '</span> ';
 
                 if ($instance['show_urls']) {
-                    if ($announcement_url) {
-                        $output = $output . $this->add_link_button($instance, $announcement_url, __('A', 'mec-addon-plugin'), __('Ausschreibung', 'mec-addon-plugin') );
+                    if ($announcement_url = get_post_meta(get_the_ID(), 'om_link_announcement', true)) {
+                        $output = $output . $this->add_link_button($instance, $announcement_url, __('A', 'mec-addon-plugin'), __('Ausschreibung', 'mec-addon-plugin'));
                     }
-                    if ($registration_url) {
+                    if ($registration_url = get_post_meta(get_the_ID(), 'om_link_registration', true)) {
                         $output = $output . $this->add_link_button($instance, $registration_url, __('M', 'mec-addon-plugin'), __('Meldung', 'mec-addon-plugin'));
                     }
-                    if ($start_list_url) {
+                    if ($start_list_url = get_post_meta(get_the_ID(), 'om_link_startlist', true)) {
                         $output = $output . $this->add_link_button($instance, $start_list_url, __('S', 'mec-addon-plugin'), __('Startliste', 'mec-addon-plugin'));
                     }
                 }
@@ -193,6 +198,7 @@ class MEC_Addon_Upcoming_Events extends WP_Widget {
         echo '<p><label for="' . $this->get_field_id( 'urls_class' ) . '">' . esc_html__( 'Urls Class:', 'mec-addon-plugin' ) . ' <input class="widefat" id="' . $this->get_field_id( 'urls_class' ) . '" name="' . $this->get_field_name( 'urls_class' ) . '" value="' . esc_attr( $instance['urls_class'] ) . '" /></label></p>';
 
     }
+
 }
 
 function mec_addon_register_upcoming_events_widget() {
