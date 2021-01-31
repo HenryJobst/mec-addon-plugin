@@ -182,8 +182,8 @@ class MEC_Addon_Upcoming_Events extends WP_Widget {
             'more_text' => __( 'Show All', 'mec-addon-plugin'),
             'more_link' => __( 'Permalink to the page that show all events', 'mec-addon-plugin'),
             'date_format' => __( 'd. F Y', 'mec-addon-plugin'),
-            'show_sports_type' => true,
-            'show_urls' => true,
+            'show_sports_type' => false,
+            'show_urls' => false,
             'urls_class' => 'button',
         );
         $instance = wp_parse_args( (array) $instance, $defaults );
