@@ -91,7 +91,7 @@ class MEC_Addon_Upcoming_Events extends WP_Widget {
                 echo $before_title . apply_filters( 'widget_title', $title ) . $after_title;
             }
 
-            echo '<ul class="display-post-listing">';
+            echo '<ul class="display-post-listing upcomming-events-widget">';
 
             while ( $loop->have_posts() ): $loop->the_post();
                 global $post;
