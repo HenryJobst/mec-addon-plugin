@@ -101,13 +101,15 @@ class MEC_Addon_Upcoming_Events extends WP_Widget {
                 if ($instance['show_sports_type']) {
                     if ($sport_type = get_post_meta(get_the_ID(), 'om_sport', true)) {
                         $sport_type_url = null;
-                        if ('OL' == $sport_type) {
-                            $sport_type_url = '<img class="wp-image-16984  alignnone" src="https://olberlin.de/wp-content/uploads/2021/01/OL_Logo_bunt-300x261.png" alt="" width="20" height="17" />';
-                        } else if ('MTB-O' == $sport_type) {
-                            $sport_type_url = '<img class="wp-image-16983  alignnone" src="https://olberlin.de/wp-content/uploads/2021/01/MTB_O_Logo_bunt-300x261.png" alt="" width="20" height="17" />';
+                        if (strcasecmp('OL', $sport_type) == 0) {
+                            $sport_type_url = '<img class="wp-image-16984  alignnone" src="uploads/2021/01/OL_Logo_bunt-300x261.png" alt="" width="20" height="17" />';
+                        } else if (strcasecmp('MTB-O', $sport_type) == 0) {
+                            $sport_type_url = '<img class="wp-image-16983  alignnone" src="uploads/2021/01/MTB_O_Logo_bunt-300x261.png" alt="" width="20" height="17" />';
                         }
                         if ($sport_type_url) {
-                            $output = $output . '<span> ' . $sport_type . ' </span>';
+                            $output = $output . $sport_type_url;
+                        } else {
+                            $output = $output . '<span>' . $sport_type . '</span>';
                         }
                     }
                 }
