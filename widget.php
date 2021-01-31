@@ -115,7 +115,7 @@ class MEC_Addon_Upcoming_Events extends WP_Widget {
                 }
 
                 $formated_event_date = $this->get_formated_event_date($date_format);
-                $output = $output . '<a class="title" href="' . get_permalink() . '">' . get_the_title() . '</a> <span class="date">' . $formated_event_date . '</span> ';
+                $output = $output . '<a class="title" href="' . get_permalink() . '">' . get_the_title() . '</a> <span class="date nobr">' . $formated_event_date . '</span> ';
 
                 if ($instance['show_urls']) {
                     if ($announcement_url = get_post_meta(get_the_ID(), 'om_link_announcement', true)) {
