@@ -118,6 +118,7 @@ class MEC_Addon_Past_Events extends WP_Widget {
                 $output = $output . '<a class="title" href="' . get_permalink() . '">' . get_the_title() . '</a> <span class="date nobr">' . $formated_event_date . '</span> ';
 
                 if ($instance['show_urls']) {
+                    $output = $output . '<span class="event-urls nobr">';
                     if ($results_url = get_post_meta(get_the_ID(), 'om_link_results', true)) {
                         $output = $output . $this->add_link_button($instance, $results_url, __('E', 'mec-addon-plugin'), __('Ergebnisse', 'mec-addon-plugin'));
                     }
@@ -127,6 +128,7 @@ class MEC_Addon_Past_Events extends WP_Widget {
                     if ($rg_results_url = get_post_meta(get_the_ID(), 'om_link_routegadget', true)) {
                         $output = $output . $this->add_link_button($instance, $rg_results_url, __('R', 'mec-addon-plugin'), __('RouteGadget', 'mec-addon-plugin'));
                     }
+                    $output = $output . '</span>';
                 }
 
                 echo '<li class="listing-item">' . apply_filters( 'mec_addon_events_manager_past_widget_output', $output, $post ) . '</li>';

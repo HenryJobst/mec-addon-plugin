@@ -118,6 +118,7 @@ class MEC_Addon_Upcoming_Events extends WP_Widget {
                 $output = $output . '<a class="title" href="' . get_permalink() . '">' . get_the_title() . '</a> <span class="date nobr">' . $formated_event_date . '</span> ';
 
                 if ($instance['show_urls']) {
+                    $output = $output . '<span class="event-urls nobr">';
                     if ($announcement_url = get_post_meta(get_the_ID(), 'om_link_announcement', true)) {
                         $output = $output . $this->add_link_button($instance, $announcement_url, __('A', 'mec-addon-plugin'), __('Ausschreibung', 'mec-addon-plugin'));
                     }
@@ -127,6 +128,7 @@ class MEC_Addon_Upcoming_Events extends WP_Widget {
                     if ($start_list_url = get_post_meta(get_the_ID(), 'om_link_startlist', true)) {
                         $output = $output . $this->add_link_button($instance, $start_list_url, __('S', 'mec-addon-plugin'), __('Startliste', 'mec-addon-plugin'));
                     }
+                    $output = $output . '</span>';
                 }
 
                 echo '<li class="listing-item">' . apply_filters( 'mec_addon_events_manager_upcoming_widget_output', $output, $post ) . '</li>';
