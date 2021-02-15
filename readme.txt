@@ -10,6 +10,9 @@ Add a upcoming events widget.
 
 == Changelog ==
 
+= 1.0.6 =
+* add new widget for events table
+
 = 1.0.5 =
 * add new widget for past events
 
