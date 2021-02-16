@@ -66,8 +66,10 @@ class MEC_Addon_Events_Table_Widget extends WP_Widget {
             $date_format = 'j. F Y';
         }
 
-        $start_date = "2021-01-01";
-        $end_date = "2021-12-31";
+        $actual_year = date('Y', time());
+
+        $start_date = $actual_year . "-01-01";
+        $end_date = $actual_year . "-12-31";
 
         $loop  = new WP_Query( array(
             'post_type'      => 'mec-events',
@@ -87,7 +89,7 @@ class MEC_Addon_Events_Table_Widget extends WP_Widget {
         echo $before_widget;
 
         if ($title = $instance['title'] ) {
-            echo $before_title . apply_filters( 'widget_title', $title ) . $after_title;
+            echo $before_title . apply_filters( 'widget_title', $title ) . '&nbsp;' . $actual_year . $after_title;
         }
 
         if ( $loop->have_posts() ) {
