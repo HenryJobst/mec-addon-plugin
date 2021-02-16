@@ -77,13 +77,9 @@ class MEC_Addon_Events_Table_Widget extends WP_Widget {
             'meta_query'     => array(
                 array(
                     'key'     => 'mec_start_date',
-                    'value'   => date('Y-m-d', $start_date),
-                    'compare' => '>=',
-                ),
-                array(
-                    'key'     => 'mec_start_date',
-                    'value'   => date('Y-m-d', $end_date),
-                    'compare' => '<=',
+                    'value'   => array($start_date, $end_date),
+                    'compare' => 'BETWEEN',
+                    'type'    => 'DATE',
                 ),
             ),
         ) );
@@ -163,7 +159,7 @@ class MEC_Addon_Events_Table_Widget extends WP_Widget {
             endwhile;
 
             echo '</table>';
-            
+
         } else {
             echo 'No events available.';
         }
