@@ -88,13 +88,13 @@ class MEC_Addon_Events_Table_Widget extends WP_Widget {
             ),
         ) );
 
-        if ( $loop->have_posts() ):
+        echo $before_widget;
 
-            echo $before_widget;
+        if ($title = $instance['title'] ) {
+            echo $before_title . apply_filters( 'widget_title', $title ) . $after_title;
+        }
 
-            if ($title = $instance['title'] ) {
-                echo $before_title . apply_filters( 'widget_title', $title ) . $after_title;
-            }
+        if ( $loop->have_posts() ) {
 
             echo '<table class="events-table-widget-table">';
 
@@ -163,10 +163,13 @@ class MEC_Addon_Events_Table_Widget extends WP_Widget {
             endwhile;
 
             echo '</table>';
+            
+        } else {
+            echo 'No events available.';
+        }
+            
+        echo $after_widget;
 
-            echo $after_widget;
-
-        endif;
         wp_reset_postdata();
     }
 
