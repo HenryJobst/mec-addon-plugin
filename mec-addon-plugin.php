@@ -31,3 +31,4 @@ defined('ABSPATH') or die;
 
 require_once plugin_dir_path(__FILE__). '/upcoming-events-widget.php';
 require_once plugin_dir_path(__FILE__). '/past-events-widget.php';
+require_once plugin_dir_path(__FILE__). '/events-table-widget.php';
