@@ -87,7 +87,7 @@ class MEC_Addon_Events_Table_Widget extends WP_Widget {
 
         $loop  = new WP_Query( array(
             'post_type'      => 'mec-events',
-            'nopaging'       => 'true',
+            'nopaging'       => true,
             'order'          => 'ASC',
             'orderby'        => 'meta_value',
             'meta_key'       => 'mec_start_date',

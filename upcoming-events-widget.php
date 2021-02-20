@@ -133,7 +133,7 @@ class MEC_Addon_Upcoming_Events extends WP_Widget {
 
                 $formated_date_register = $this->get_formated_registration_date($date_format);
                 if ($formated_date_register) {
-                    $output = $output . ' <span class="date nobr">' . $formated_date_formated_date_register . '</span> ';
+                    $output = $output . ' <span class="date nobr">' . $formated_date_register . '</span> ';
                 }
 
                 if ($instance['show_urls']) {
