@@ -33,25 +33,6 @@ class MEC_Addon_Events_Table_Widget extends WP_Widget {
         return ' ' . '<a class="'. $link_class .'" title="'. $title_text . '" href="' . $url . '">' . '<span>' . $button_text . '</span>' . '</a>';
     }
 
-    /**
-     * @param string $date_format date format
-     * @return false|string
-     */
-    private function get_formated_event_date(string $date_format): string
-    {
-        $date_field = get_post_meta(get_the_ID(), 'mec_start_date', true);
-        return get_formated_date($date_field);
-    }
-
-    private function get_formated_registration_date(string $date_format): string
-    {
-        $date_field = get_post_meta(get_the_ID(), 'om_date_register', true);
-        if ($date_field) {
-            return get_formated_date($date_field);
-        }
-        return null;
-    }
-
     private function get_formated_date(string $date_field, string $date_format): string
     {
         $formated_event_date = '';
@@ -63,6 +44,29 @@ class MEC_Addon_Events_Table_Widget extends WP_Widget {
         }
         return $formated_event_date;
     }
+
+    /**
+     * @param string $date_format date format
+     * @return false|string
+     */
+    private function get_formated_event_date(string $date_format): string
+    {
+        $date_field = get_post_meta(get_the_ID(), 'mec_start_date', true);
+        if ($date_field) {
+            return $this->get_formated_date($date_field, $date_format);
+        }
+        return false;
+    }
+
+    private function get_formated_registration_date(string $date_format): string
+    {
+        $date_field = get_post_meta(get_the_ID(), 'om_date_register', true);
+        if ($date_field) {
+            return $this->get_formated_date($date_field, $date_format);
+        }
+        return false;
+    }
+
 
     /**
      * Outputs the HTML for this widget.
@@ -130,7 +134,7 @@ class MEC_Addon_Events_Table_Widget extends WP_Widget {
 
                 $formated_register_date = $this->get_formated_registration_date($date_format);
                 if ($formated_register_date) {
-                    echo '<td><span class="etw-signon-date nobr">' . $formated_register_date . '</span></td>';
+                    echo '<td><span class="etw-register-date nobr">' . $formated_register_date . '</span></td>';
                 } else {
                     echo '<td></td>';
                 }
