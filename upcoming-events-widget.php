@@ -39,8 +39,22 @@ class MEC_Addon_Upcoming_Events extends WP_Widget {
      */
     private function get_formated_event_date(string $date_format): string
     {
-        $formated_event_date = '';
         $date_field = get_post_meta(get_the_ID(), 'mec_start_date', true);
+        return get_formated_date($date_field);
+    }
+
+    private function get_formated_registration_date(string $date_format): string
+    {
+        $date_field = get_post_meta(get_the_ID(), 'om_date_register', true);
+        if ($date_field) {
+            return get_formated_date($date_field);
+        }
+        return null;
+    }
+
+    private function get_formated_date(string $date_field, string $date_format): string
+    {
+        $formated_event_date = '';
         if ($date_field) {
             $event_date = date_timestamp_get(date_create_immutable_from_format('Y-m-d', $date_field));
             if ($event_date) {
@@ -116,6 +130,11 @@ class MEC_Addon_Upcoming_Events extends WP_Widget {
 
                 $formated_event_date = $this->get_formated_event_date($date_format);
                 $output = $output . '<a class="title" href="' . get_permalink() . '">' . get_the_title() . '</a> <span class="date nobr">' . $formated_event_date . '</span> ';
+
+                $formated_date_register = $this->get_formated_registration_date($date_format);
+                if ($formated_date_register) {
+                    $output = $output . ' <span class="date nobr">' . $formated_date_formated_date_register . '</span> ';
+                }
 
                 if ($instance['show_urls']) {
                     $output = $output . '<span class="event-urls nobr">';

@@ -39,8 +39,22 @@ class MEC_Addon_Events_Table_Widget extends WP_Widget {
      */
     private function get_formated_event_date(string $date_format): string
     {
-        $formated_event_date = '';
         $date_field = get_post_meta(get_the_ID(), 'mec_start_date', true);
+        return get_formated_date($date_field);
+    }
+
+    private function get_formated_registration_date(string $date_format): string
+    {
+        $date_field = get_post_meta(get_the_ID(), 'om_date_register', true);
+        if ($date_field) {
+            return get_formated_date($date_field);
+        }
+        return null;
+    }
+
+    private function get_formated_date(string $date_field, string $date_format): string
+    {
+        $formated_event_date = '';
         if ($date_field) {
             $event_date = date_timestamp_get(date_create_immutable_from_format('Y-m-d', $date_field));
             if ($event_date) {
@@ -73,6 +87,7 @@ class MEC_Addon_Events_Table_Widget extends WP_Widget {
 
         $loop  = new WP_Query( array(
             'post_type'      => 'mec-events',
+            'nopaging'       => 'true',
             'order'          => 'ASC',
             'orderby'        => 'meta_value',
             'meta_key'       => 'mec_start_date',
@@ -99,7 +114,8 @@ class MEC_Addon_Events_Table_Widget extends WP_Widget {
             echo '<tr class="etw-table-row">';
             echo '<th>' . __('Termin', 'mec-addon-plugin') . '</th>';
             echo '<th>' . __('Meldetermin', 'mec-addon-plugin') . '</th>';
-            echo '<th>' . __('Typ', 'mec-addon-plugin') . '</th>';
+            echo '<th>' . __('Sportart', 'mec-addon-plugin') . '</th>';
+            echo '<th>' . __('Rubrik', 'mec-addon-plugin') . '</th>';
             echo '<th>' . __('Wettkampf', 'mec-addon-plugin') . '</th>';
             echo '<th>' . __('Links', 'mec-addon-plugin') . '</th>';
             echo '</tr>';
@@ -111,8 +127,13 @@ class MEC_Addon_Events_Table_Widget extends WP_Widget {
 
                 $formated_event_date = $this->get_formated_event_date($date_format);
                 echo '<td><span class="etw-date nobr">' . $formated_event_date . '</span></td>';
-                
-                echo '<td><span class="etw-signon-date nobr">' . '' . '</span></td>';
+
+                $formated_register_date = $this->get_formated_registration_date($date_format);
+                if ($formated_register_date) {
+                    echo '<td><span class="etw-signon-date nobr">' . $formated_register_date . '</span></td>';
+                } else {
+                    echo '<td></td>';
+                }
 
                 echo '<td>';
                 if ($instance['show_sports_type']) {
@@ -131,10 +152,19 @@ class MEC_Addon_Events_Table_Widget extends WP_Widget {
                     }
                 } else {
                     if ($sport_type = get_post_meta(get_the_ID(), 'om_sport', true)) {
-                            echo '<span class="etw-type">' . $sport_type . '</span>';
+                        echo '<span class="etw-type">' . $sport_type . '</span>';
                     } else {
-                            echo '<span class="etw-type">' . '' . '</span>';
+                        echo '<span class="etw-type">' . '' . '</span>';
                     }
+                }
+                echo '</td>';
+
+                echo '<td>';
+                if ($classification = get_post_meta(get_the_ID(), 'om_classification', true)) {
+                    if (strcasecmp('LRL', $classification) == 0) {
+                        $classification = 'NOR';
+                    }
+                    echo '<span class="etw-classification">' . $classification . '</span>';
                 }
                 echo '</td>';
 
