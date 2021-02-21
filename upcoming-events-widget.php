@@ -119,9 +119,11 @@ class MEC_Addon_Upcoming_Events extends WP_Widget {
                     if ($sport_type = get_post_meta(get_the_ID(), 'om_sport', true)) {
                         $sport_type_url = null;
                         if (strcasecmp('OL', $sport_type) == 0) {
-                            $sport_type_url = '<img class="wp-image-16984" src="/wp-content/uploads/2021/01/OL_Logo_bunt-300x261.png" alt="" width="20" height="17" />&nbsp;';
+                            $sport_type_url = '<img class="wp-image-16984" src="/wp-content/uploads/2021/01/OL_Logo_bunt-300x261.png" alt="OL" width="20" height="17" />&nbsp;';
                         } else if (strcasecmp('MTB-O', $sport_type) == 0) {
-                            $sport_type_url = '<img class="wp-image-16983" src="/wp-content/uploads/2021/01/MTB_O_Logo_bunt-300x261.png" alt="" width="20" height="17" />&nbsp;';
+                            $sport_type_url = '<img class="wp-image-16983" src="/wp-content/uploads/2021/01/MTB_O_Logo_bunt-300x261.png" alt="MTB-O" width="20" height="17" />&nbsp;';
+                        } else if (strcasecmp('Crosslauf', $sport_type) == 0) {
+                            $sport_type_url = '<img class="wp-image-18174" src="/wp-content/uploads/2021/02/Crosslauf-FARBIG-300x261.png" alt="Cross" width="20" height="17" />&nbsp;';
                         }
                         if ($sport_type_url) {
                             $output = $output . $sport_type_url;
