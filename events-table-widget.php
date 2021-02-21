@@ -160,7 +160,7 @@ class MEC_Addon_Events_Table_Widget extends WP_Widget {
                     if ($sport_type = get_post_meta(get_the_ID(), 'om_sport', true)) {
                         echo '<span class="etw-type">' . $sport_type . '</span>';
                     } else {
-                        echo '<span class="etw-type">' . '' . '</span>';
+                        echo '<span class="etw-type">' . '&nbsp;' . '</span>';
                     }
                 }
                 echo '</td>';
@@ -171,6 +171,8 @@ class MEC_Addon_Events_Table_Widget extends WP_Widget {
                         $classification = 'NOR';
                     }
                     echo '<span class="etw-classification">' . $classification . '</span>';
+                } else {
+                    echo '<span class="etw-classification">' . '&nbsp;' . '</span>';
                 }
                 echo '</td>';
 
@@ -189,6 +191,8 @@ class MEC_Addon_Events_Table_Widget extends WP_Widget {
                         echo $this->add_link_button($instance, $start_list_url, __('S', 'mec-addon-plugin'), __('Startliste', 'mec-addon-plugin'));
                     }
                     echo '</span>';
+                } else {
+                    echo '<span class="etw-urls nobr">&nbsp;</span>';
                 }
                 echo '</td>';
 
