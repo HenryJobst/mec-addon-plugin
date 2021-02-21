@@ -150,7 +150,7 @@ class MEC_Addon_Events_Table_Widget extends WP_Widget {
                         } else if (strcasecmp('MTB-O', $sport_type) == 0) {
                             $sport_type_url = '<img class="wp-image-16983" src="/wp-content/uploads/2021/01/MTB_O_Logo_bunt-300x261.png" alt="MTB-O" width="20" height="17" />&nbsp;';
                         } else if (strcasecmp('Crosslauf', $sport_type) == 0) {
-                            $sport_type_url = '<img class="wp-image-18174" src="/wp-content/uploads/2021/02/Crosslauf-FARBIG-300x261.png" alt="Cross" width="20" height="17" />&nbsp;';
+                            $sport_type_url = '<img class="wp-image-18174" src="/wp-content/uploads/2021/02/Crosslauf-FARBIG-150x150.png" alt="Cross" width="20" height="20" />&nbsp;';
                         }
                         if ($sport_type_url) {
                             echo '<div class="etw-type">' . $sport_type_url . '</div>';
@@ -192,6 +192,15 @@ class MEC_Addon_Events_Table_Widget extends WP_Widget {
                     if ($start_list_url = get_post_meta(get_the_ID(), 'om_link_startlist', true)) {
                         echo $this->add_link_button($instance, $start_list_url, __('S', 'mec-addon-plugin'), __('Startliste', 'mec-addon-plugin'));
                     }
+                    if ($results_url = get_post_meta(get_the_ID(), 'om_link_results', true)) {
+                        echo $this->add_link_button($instance, $results_url, __('E', 'mec-addon-plugin'), __('Ergebnisse', 'mec-addon-plugin'));
+                    }
+                    if ($si_results_url = get_post_meta(get_the_ID(), 'om_link_resultsplits', true)) {
+                        echo $this->add_link_button($instance, $si_results_url, __('Si', 'mec-addon-plugin'), __('Splittzeiten', 'mec-addon-plugin'));
+                    }
+                    if ($rg_results_url = get_post_meta(get_the_ID(), 'om_link_routegadget', true)) {
+                        echo $this->add_link_button($instance, $rg_results_url, __('R', 'mec-addon-plugin'), __('RouteGadget', 'mec-addon-plugin'));
+                    }
                     echo '</span>';
                 } else {
                     echo '<span class="etw-urls nobr">&nbsp;</span>';
@@ -206,7 +215,7 @@ class MEC_Addon_Events_Table_Widget extends WP_Widget {
             echo '</table>';
 
         } else {
-            echo 'No events available.';
+            echo __('No events available.', 'mec-addon-plugin');
         }
             
         echo $after_widget;

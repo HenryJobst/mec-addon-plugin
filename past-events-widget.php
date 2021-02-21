@@ -106,7 +106,7 @@ class MEC_Addon_Past_Events extends WP_Widget {
                         } else if (strcasecmp('MTB-O', $sport_type) == 0) {
                             $sport_type_url = '<img class="wp-image-16983" src="/wp-content/uploads/2021/01/MTB_O_Logo_bunt-300x261.png" alt="MTB-O" width="20" height="17" />&nbsp;';
                         } else if (strcasecmp('Crosslauf', $sport_type) == 0) {
-                            $sport_type_url = '<img class="wp-image-18174" src="/wp-content/uploads/2021/02/Crosslauf-FARBIG-300x261.png" alt="Cross" width="20" height="17" />&nbsp;';
+                            $sport_type_url = '<img class="wp-image-18174" src="/wp-content/uploads/2021/02/Crosslauf-FARBIG-150x150.png" alt="Cross" width="20" height="20" />&nbsp;';
                         }
                         if ($sport_type_url) {
                             $output = $output . $sport_type_url;

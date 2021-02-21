@@ -10,6 +10,10 @@ Add a upcoming events widget.
 
 == Changelog ==
 
+= 1.0.7 =
+* add logo for cross runs
+* add result urls for events table widget
+
 = 1.0.6 =
 * add new widget for events table
 
