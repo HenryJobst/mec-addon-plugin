@@ -114,7 +114,7 @@ class MEC_Addon_Events_Table_Widget extends WP_Widget {
         if ( $loop->have_posts() ) {
 
             echo '<table class="events-table-widget-table">';
-
+            echo '<thead>';
             echo '<tr class="etw-table-row">';
             echo '<th>' . __('Termin', 'mec-addon-plugin') . '</th>';
             echo '<th>' . __('Meldetermin', 'mec-addon-plugin') . '</th>';
@@ -123,6 +123,8 @@ class MEC_Addon_Events_Table_Widget extends WP_Widget {
             echo '<th>' . __('Wettkampf', 'mec-addon-plugin') . '</th>';
             echo '<th>' . __('Links', 'mec-addon-plugin') . '</th>';
             echo '</tr>';
+            echo '</thead>';
+            echo '<tbody>';
 
             while ( $loop->have_posts() ): $loop->the_post();
                 global $post;
@@ -136,7 +138,7 @@ class MEC_Addon_Events_Table_Widget extends WP_Widget {
                 if ($formated_register_date) {
                     echo '<td><span class="etw-register-date nobr">' . $formated_register_date . '</span></td>';
                 } else {
-                    echo '<td></td>';
+                    echo '<td><span class="etw-register-date nobr">&nbsp;</span></td>';
                 }
 
                 echo '<td>';
@@ -194,6 +196,7 @@ class MEC_Addon_Events_Table_Widget extends WP_Widget {
 
             endwhile;
 
+            echo '</tbody>';
             echo '</table>';
 
         } else {
