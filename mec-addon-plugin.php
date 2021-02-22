@@ -7,6 +7,7 @@ Author:      Henry Jobst
 Author URI: https://github.com/HenryJobst
 Text Domain: mec-addon-plugin
 License: MIT License
+Plugin Type: Piklist
 
 Copyright (c) 2021 {Author}
 
