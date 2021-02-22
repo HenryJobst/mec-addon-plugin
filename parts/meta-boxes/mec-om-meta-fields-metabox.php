@@ -10,7 +10,7 @@ piklist('field', array(
     ,'label' => __('Type of sport', 'mec-addon-plugin')
     ,'description' => __('Type of sport', 'mec-addon-plugin')
     ,'value' => ''
-    ,'help' => __('Type of sport type of this event. (OL, MTB-O, Crosslauf, ...),','mec-addon-plugin')
+    ,'help' => __('Type of sport of this event. (OL, MTB-O, Crosslauf, ...)','mec-addon-plugin')
     ,'attributes' => array(
       'class' => 'text'
     )
