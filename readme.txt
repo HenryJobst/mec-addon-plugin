@@ -10,6 +10,10 @@ Add a upcoming events widget.
 
 == Changelog ==
 
+= 1.0.8 =
+* add metabox for custom fields om_*
+* new plugin dependency Piklist
+
 = 1.0.7 =
 * add logo for cross runs
 * add result urls for events table widget
