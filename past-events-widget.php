@@ -39,12 +39,13 @@ class MEC_Addon_Past_Events extends WP_Widget {
      */
     private function get_formated_event_date(string $date_format): string
     {
+        $zone = new DateTimeZone('Europe/Berlin');
         $formated_event_date = '';
         $date_field = get_post_meta(get_the_ID(), 'mec_start_date', true);
         if ($date_field) {
-            $event_date = date_timestamp_get(date_create_immutable_from_format('Y-m-d', $date_field));
+            $event_date = date_timestamp_get(date_create_immutable_from_format('Y-m-d', $date_field, $zone));
             if ($event_date) {
-                $formated_event_date = wp_date($date_format, $event_date);
+                $formated_event_date = wp_date($date_format, $event_date, $zone);
             }
         }
         return $formated_event_date;

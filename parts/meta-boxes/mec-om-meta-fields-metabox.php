@@ -74,11 +74,6 @@ piklist('field', array(
     ,'attributes' => array(
       'class' => 'regular-text'
     )
-    ,'validate' => array(
-      array(
-        'type' => 'url'
-      )
-    )
   ));
 
 piklist('field', array(
@@ -90,11 +85,6 @@ piklist('field', array(
     ,'help' => __('Full URL of the page or file with the event announcement.','mec-addon-plugin')
     ,'attributes' => array(
       'class' => 'regular-text'
-    )
-    ,'validate' => array(
-      array(
-        'type' => 'url'
-      )
     )
   ));
   
@@ -108,11 +98,6 @@ piklist('field', array(
     ,'attributes' => array(
       'class' => 'regular-text'
     )
-    ,'validate' => array(
-      array(
-        'type' => 'url'
-      )
-    )
   ));
   
 piklist('field', array(
@@ -124,11 +109,6 @@ piklist('field', array(
     ,'help' => __('Full URL of the page or file with the event results.','mec-addon-plugin')
     ,'attributes' => array(
       'class' => 'regular-text'
-    )
-    ,'validate' => array(
-      array(
-        'type' => 'url'
-      )
     )
   ));
   
@@ -142,11 +122,6 @@ piklist('field', array(
     ,'attributes' => array(
       'class' => 'regular-text'
     )
-    ,'validate' => array(
-      array(
-        'type' => 'url'
-      )
-    )
   ));
   
 piklist('field', array(
@@ -159,11 +134,6 @@ piklist('field', array(
     ,'attributes' => array(
       'class' => 'regular-text'
     )
-    ,'validate' => array(
-      array(
-        'type' => 'url'
-      )
-    )
   ));
   
 piklist('field', array(
@@ -175,11 +145,6 @@ piklist('field', array(
     ,'help' => __('Full URL of the page or file with the startlist.','mec-addon-plugin')
     ,'attributes' => array(
       'class' => 'regular-text',
-    )
-    ,'validate' => array(
-      array(
-        'type' => 'url'
-      )
     )
   ));
   
