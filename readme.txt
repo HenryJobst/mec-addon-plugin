@@ -10,6 +10,9 @@ Add a upcoming events widget.
 
 == Changelog ==
 
+= 1.0.9 =
+* remove classification transformation of LRL to NOR
+
 = 1.0.8 =
 * add metabox for custom fields om_*
 * new plugin dependency Piklist

@@ -170,9 +170,6 @@ class MEC_Addon_Events_Table_Widget extends WP_Widget {
 
                 echo '<td>';
                 if ($classification = get_post_meta(get_the_ID(), 'om_classification', true)) {
-                    if (strcasecmp('LRL', $classification) == 0) {
-                        $classification = 'NOR';
-                    }
                     echo '<span class="etw-classification">' . $classification . '</span>';
                 } else {
                     echo '<span class="etw-classification">' . '&nbsp;' . '</span>';
