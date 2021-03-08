@@ -86,6 +86,12 @@ class MEC_Addon_Events_Table_Widget extends WP_Widget {
         }
 
         $actual_year = date('Y', time());
+        
+        global $wp_query;
+        $year_param = sanitize_text_field($wp_query->query_vars['evtw_year']);
+        if (isset($year_param)) {
+            $actual_year = $year_param;
+        }
 
         $start_date = $actual_year . "-01-01";
         $end_date = $actual_year . "-12-31";
@@ -215,6 +221,10 @@ class MEC_Addon_Events_Table_Widget extends WP_Widget {
         } else {
             echo __('No events available.', 'mec-addon-plugin');
         }
+
+        global $wp;
+        echo '<a href="' . home_url( $wp->request ) . '?evtw_year=' . $actual_year-1 . '">vorhergehendes Jahr (' . $actual_year-1 . ')</a>';
+        echo '<a href="' . home_url( $wp->request ) . '?evtw_year=' . $actual_year+1 . '">folgendes Jahr (' . $actual_year+1 . ')</a>';
             
         echo $after_widget;
 
@@ -276,3 +286,10 @@ function mec_addon_register_events_table_widget() {
 }
 
 add_action( 'widgets_init', 'mec_addon_register_events_table_widget' );
+
+function add_evtw_year_parameter_to_queryvars( $qvars ) {
+    $qvars[] = 'evtw_year';
+    return $qvars;
+}
+
+add_filter( 'query_vars', 'add_evtw_year_parameter_to_queryvars' );

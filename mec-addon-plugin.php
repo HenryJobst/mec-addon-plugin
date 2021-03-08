@@ -2,7 +2,7 @@
 /*
 Plugin Name: MEC Addon Plugin
 Description: Add some special enhancements to modern events calendar lite plugin.
-Version:     1.0.9
+Version:     1.0.10
 Author:      Henry Jobst
 Author URI: https://github.com/HenryJobst
 Text Domain: mec-addon-plugin

@@ -10,6 +10,9 @@ Add a upcoming events widget.
 
 == Changelog ==
 
+= 1.0.10 =
+* add events table widget year parameter
+
 = 1.0.9 =
 * remove classification transformation of LRL to NOR
 
