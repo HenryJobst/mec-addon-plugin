@@ -5,6 +5,13 @@
  * @package    MEC-Addon-Plugin
  */
 
+function add_evtw_year_parameter_to_queryvars( $qvars ) {
+    $qvars[] = 'evtw_year';
+    return $qvars;
+}
+
+add_filter( 'query_vars', 'add_evtw_year_parameter_to_queryvars' );
+
 class MEC_Addon_Events_Table_Widget extends WP_Widget {
 
     /**
@@ -68,6 +75,12 @@ class MEC_Addon_Events_Table_Widget extends WP_Widget {
         return false;
     }
 
+    private function add_nav_links($url, $year) {
+        $result = '<p><a class="prev_page-numbers" data-wpel-link="internal" href="' . $url . '/?evtw_year=' . ($year-1) . '">« Zurück</a>';
+        $result .= ' <a class="next_page-numbers" data-wpel-link="internal" href="' . $url . '/?evtw_year=' . ($year+1) . '">Weiter »</a></p>';
+        return $result;
+    }
+
 
     /**
      * Outputs the HTML for this widget.
@@ -88,8 +101,8 @@ class MEC_Addon_Events_Table_Widget extends WP_Widget {
         $actual_year = date('Y', time());
         
         global $wp_query;
-        $year_param = sanitize_text_field($wp_query->query_vars['evtw_year']);
-        if (isset($year_param)) {
+        if (isset($wp_query->query_vars['evtw_year'])) {
+            $year_param = sanitize_text_field($wp_query->query_vars['evtw_year']);
             $actual_year = $year_param;
         }
 
@@ -117,6 +130,11 @@ class MEC_Addon_Events_Table_Widget extends WP_Widget {
         if ($title = $instance['title'] ) {
             echo $before_title . apply_filters( 'widget_title', $title ) . '&nbsp;' . $actual_year . $after_title;
         }
+        
+        global $wp;
+        $this_url = home_url($wp->request);
+
+        echo $this->add_nav_links($this_url, $actual_year);
 
         if ( $loop->have_posts() ) {
 
@@ -222,10 +240,8 @@ class MEC_Addon_Events_Table_Widget extends WP_Widget {
             echo __('No events available.', 'mec-addon-plugin');
         }
 
-        global $wp;
-        echo '<a href="' . home_url( $wp->request ) . '?evtw_year=' . $actual_year-1 . '">vorhergehendes Jahr (' . $actual_year-1 . ')</a>';
-        echo '<a href="' . home_url( $wp->request ) . '?evtw_year=' . $actual_year+1 . '">folgendes Jahr (' . $actual_year+1 . ')</a>';
-            
+        echo $this->add_nav_links($this_url, $actual_year);
+
         echo $after_widget;
 
         wp_reset_postdata();
@@ -286,10 +302,3 @@ function mec_addon_register_events_table_widget() {
 }
 
 add_action( 'widgets_init', 'mec_addon_register_events_table_widget' );
-
-function add_evtw_year_parameter_to_queryvars( $qvars ) {
-    $qvars[] = 'evtw_year';
-    return $qvars;
-}
-
-add_filter( 'query_vars', 'add_evtw_year_parameter_to_queryvars' );
