@@ -76,8 +76,8 @@ class MEC_Addon_Events_Table_Widget extends WP_Widget {
     }
 
     private function add_nav_links($url, $year) {
-        $result = '<p><a class="prev_page-numbers" data-wpel-link="internal" href="' . $url . '/?evtw_year=' . ($year-1) . '">« Zurück</a>';
-        $result .= ' <a class="next_page-numbers" data-wpel-link="internal" href="' . $url . '/?evtw_year=' . ($year+1) . '">Weiter »</a></p>';
+        $result = '<p><div class="pagination"><a class="prev_page-numbers" data-wpel-link="internal" href="' . $url . '/?evtw_year=' . ($year-1) . '">« Zurück</a>';
+        $result .= ' <a class="next_page-numbers" data-wpel-link="internal" href="' . $url . '/?evtw_year=' . ($year+1) . '">Weiter »</a></div></p>';
         return $result;
     }
 
