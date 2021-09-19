@@ -102,6 +102,18 @@ piklist('field', array(
   
 piklist('field', array(
     'type' => 'text'
+    ,'field' => 'om_link_startlist'
+    ,'label' => __('Startlist', 'mec-addon-plugin')
+    ,'description' => __('URL of the startlist', 'mec-addon-plugin')
+    ,'value' => ''
+    ,'help' => __('Full URL of the page or file with the startlist.','mec-addon-plugin')
+    ,'attributes' => array(
+      'class' => 'regular-text',
+    )
+  ));
+
+piklist('field', array(
+    'type' => 'text'
     ,'field' => 'om_link_results'
     ,'label' => __('Results', 'mec-addon-plugin')
     ,'description' => __('URL of the results', 'mec-addon-plugin')
@@ -123,6 +135,18 @@ piklist('field', array(
       'class' => 'regular-text'
     )
   ));
+
+piklist('field', array(
+    'type' => 'text'
+    ,'field' => 'om_link_winsplits'
+    ,'label' => __('Split times in WinSplits Online', 'mec-addon-plugin')
+    ,'description' => __('URL of the event in WinSplits Online', 'mec-addon-plugin')
+    ,'value' => ''
+    ,'help' => __('URL of the event in WinSplits Online to further analyze split times.','mec-addon-plugin')
+    ,'attributes' => array(
+      'class' => 'regular-text'
+    )
+  ));
   
 piklist('field', array(
     'type' => 'text'
@@ -138,13 +162,36 @@ piklist('field', array(
   
 piklist('field', array(
     'type' => 'text'
-    ,'field' => 'om_link_startlist'
-    ,'label' => __('Startlist', 'mec-addon-plugin')
-    ,'description' => __('URL of the startlist', 'mec-addon-plugin')
+    ,'field' => 'om_link_hygiene_concept'
+    ,'label' => __('Hygiene Concept', 'mec-addon-plugin')
+    ,'description' => __('URL of the hygiene concept', 'mec-addon-plugin')
     ,'value' => ''
-    ,'help' => __('Full URL of the page or file with the startlist.','mec-addon-plugin')
+    ,'help' => __('Full URL of the page or file with the hygiene concept.','mec-addon-plugin')
+    ,'attributes' => array(
+      'class' => 'regular-text',
+    )
+  ));
+
+piklist('field', array(
+    'type' => 'text'
+    ,'field' => 'om_link_technical_information'
+    ,'label' => __('Technical Information', 'mec-addon-plugin')
+    ,'description' => __('URL of the technical informations', 'mec-addon-plugin')
+    ,'value' => ''
+    ,'help' => __('Full URL of the page or file with the technical informations.','mec-addon-plugin')
     ,'attributes' => array(
       'class' => 'regular-text',
     )
   ));
   
+piklist('field', array(
+    'type' => 'text'
+    ,'field' => 'om_link_course_information'
+    ,'label' => __('Course Informations', 'mec-addon-plugin')
+    ,'description' => __('URL of the course informations', 'mec-addon-plugin')
+    ,'value' => ''
+    ,'help' => __('Full URL of the page or file with the course informations.','mec-addon-plugin')
+    ,'attributes' => array(
+      'class' => 'regular-text',
+    )
+  ));
