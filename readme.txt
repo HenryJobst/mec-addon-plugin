@@ -10,6 +10,9 @@ Add a upcoming events widget.
 
 == Changelog ==
 
+= 1.0.11 =
+* url buttons for hygiene concept, technical and course information
+
 = 1.0.10 =
 * add events table widget year parameter
 

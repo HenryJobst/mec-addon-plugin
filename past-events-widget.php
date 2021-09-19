@@ -128,6 +128,9 @@ class MEC_Addon_Past_Events extends WP_Widget {
                     if ($si_results_url = get_post_meta(get_the_ID(), 'om_link_resultsplits', true)) {
                         $output = $output . $this->add_link_button($instance, $si_results_url, __('Si', 'mec-addon-plugin'), __('Splittzeiten', 'mec-addon-plugin'));
                     }
+                    if ($ws_results_url = get_post_meta(get_the_ID(), 'om_link_winsplits', true)) {
+                        $output = $output . $this->add_link_button($instance, $ws_results_url, __('W', 'mec-addon-plugin'), __('WinSplits', 'mec-addon-plugin'));
+                    }
                     if ($rg_results_url = get_post_meta(get_the_ID(), 'om_link_routegadget', true)) {
                         $output = $output . $this->add_link_button($instance, $rg_results_url, __('R', 'mec-addon-plugin'), __('RouteGadget', 'mec-addon-plugin'));
                     }
