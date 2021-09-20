@@ -226,13 +226,13 @@ class MEC_Addon_Events_Table_Widget extends WP_Widget {
                     if ($rg_results_url = get_post_meta(get_the_ID(), 'om_link_routegadget', true)) {
                         echo $this->add_link_button($instance, $rg_results_url, __('R', 'mec-addon-plugin'), __('RouteGadget', 'mec-addon-plugin'));
                     }
-                    if ($rg_results_url = get_post_meta(get_the_ID(), 'om_link_hygiene_concept', true)) {
+                    if ($hy_results_url = get_post_meta(get_the_ID(), 'om_link_hygiene_concept', true)) {
                         echo $this->add_link_button($instance, $hy_results_url, __('H', 'mec-addon-plugin'), __('Hygienekonzept', 'mec-addon-plugin'));
                     }
-                    if ($rg_results_url = get_post_meta(get_the_ID(), 'om_link_technical_information', true)) {
+                    if ($ti_results_url = get_post_meta(get_the_ID(), 'om_link_technical_information', true)) {
                         echo $this->add_link_button($instance, $ti_results_url, __('T', 'mec-addon-plugin'), __('Technische Informationen', 'mec-addon-plugin'));
                     }
-                    if ($rg_results_url = get_post_meta(get_the_ID(), 'om_link_course_information', true)) {
+                    if ($ci_results_url = get_post_meta(get_the_ID(), 'om_link_course_information', true)) {
                         echo $this->add_link_button($instance, $ci_results_url, __('B', 'mec-addon-plugin'), __('Bahndaten', 'mec-addon-plugin'));
                     }
                     echo '</span>';
