@@ -30,7 +30,7 @@ class MEC_Addon_Past_Events extends WP_Widget {
         if ($instance['urls_class']) {
             $link_class = $instance['urls_class'];
         }
-        return ' ' . '<a class="'. $link_class .'" title="'. $title_text . '" href="' . $url . '">' . '<span>' . $button_text . '</span>' . '</a>';
+        return ' ' . '<a class="'. $link_class .'" title="'. $title_text . '" href="' . $url . '" target="_blank" rel="noopener external noreferrer">' . '<span>' . $button_text . '</span>' . '</a>';
     }
 
     /**

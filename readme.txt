@@ -10,6 +10,9 @@ Add a upcoming events widget.
 
 == Changelog ==
 
+= 1.0.12 =
+* reorder link buttons, open links in new tab
+
 = 1.0.11 =
 * url buttons for hygiene concept, technical and course information
 
