@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: MEC Addon Plugin\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-01-23 10:59+0000\n"
-"PO-Revision-Date: 2021-02-22 21:20+0000\n"
-"Last-Translator: \n"
+"PO-Revision-Date: 2021-09-21 21:29+0000\n"
+"Last-Translator: Henry J.\n"
 "Language-Team: Deutsch\n"
 "Language: de-DE\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
@@ -12,11 +12,11 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Loco https://localise.biz/\n"
-"X-Loco-Version: 2.5.0; wp-5.6\n"
+"X-Loco-Version: 2.5.3; wp-5.8.1\n"
 "X-Domain: mec-addon-plugin"
 
 # Button Beschriftung: Ausschreibung für den Wettkampf
-#: upcoming-events-widget.php:147 events-table-widget.php:187
+#: upcoming-events-widget.php:148 events-table-widget.php:209
 msgid "A"
 msgstr "A"
 
@@ -25,13 +25,21 @@ msgid "Add some special enhancements to modern events calendar lite plugin."
 msgstr ""
 "Fügt ein paar Erweiterungen zum Modern Events Calendar (Lite) Plugin hinzu."
 
-#: parts/meta-boxes/mec-om-meta-fields-metabox.php:87
+#: parts/meta-boxes/mec-om-meta-fields-metabox.php:82
 msgid "Announcement"
 msgstr "Ausschreibung"
 
-#: upcoming-events-widget.php:147 events-table-widget.php:187
+#: upcoming-events-widget.php:148 events-table-widget.php:209
 msgid "Ausschreibung"
 msgstr "Ausschreibung"
+
+#: upcoming-events-widget.php:160 events-table-widget.php:221
+msgid "B"
+msgstr "B"
+
+#: upcoming-events-widget.php:160 events-table-widget.php:221
+msgid "Bahndaten"
+msgstr "Bahndaten"
 
 #: parts/meta-boxes/mec-om-meta-fields-metabox.php:58
 msgid "Classification"
@@ -41,14 +49,18 @@ msgstr "Rubrik"
 msgid "Classification of the event"
 msgstr "Rubrik der Veranstaltung"
 
+#: parts/meta-boxes/mec-om-meta-fields-metabox.php:190
+msgid "Course Informations"
+msgstr "Bahndaten"
+
 # keine Übersetzung nötig
-#: upcoming-events-widget.php:212 past-events-widget.php:190 
-#: events-table-widget.php:259
+#: upcoming-events-widget.php:222 past-events-widget.php:194 
+#: events-table-widget.php:295
 msgid "d. F Y"
 msgstr "d. F Y"
 
-#: upcoming-events-widget.php:223 past-events-widget.php:201 
-#: events-table-widget.php:267
+#: upcoming-events-widget.php:233 past-events-widget.php:205 
+#: events-table-widget.php:303
 msgid "Date Format:"
 msgstr "Datumsformat:"
 
@@ -62,7 +74,7 @@ msgid "Discipline of this event. (Sprint, Middle, Long, ...)"
 msgstr "Disziplin der Veranstaltung (LRL, DM, BRL, ...)"
 
 # Button Beschriftung: Ergebnisse für den Wettkampf
-#: past-events-widget.php:125 events-table-widget.php:196
+#: past-events-widget.php:126 events-table-widget.php:227
 msgid "E"
 msgstr "E"
 
@@ -70,7 +82,7 @@ msgstr "E"
 msgid "E.g. short name of the classification. (LRL, DM, BRL, ...)"
 msgstr "In der Regel Kurzbezeichnung der Disziplin (LRL, DM, BRL, ...)"
 
-#: past-events-widget.php:125 events-table-widget.php:196
+#: past-events-widget.php:126 events-table-widget.php:227
 msgid "Ergebnisse"
 msgstr "Ergebnisse"
 
@@ -78,24 +90,28 @@ msgstr "Ergebnisse"
 msgid "Event Link"
 msgstr "Link zur Veranstaltung"
 
-#: events-table-widget.php:17
+#: events-table-widget.php:24
 msgid "Events Table"
 msgstr "Veranstaltungstabelle"
 
-#: parts/meta-boxes/mec-om-meta-fields-metabox.php:90
+#: parts/meta-boxes/mec-om-meta-fields-metabox.php:193
+msgid "Full URL of the page or file with the course informations."
+msgstr "Link zur Seite oder Datei mit den Bahndaten."
+
+#: parts/meta-boxes/mec-om-meta-fields-metabox.php:85
 msgid "Full URL of the page or file with the event announcement."
 msgstr "Link zur Seite oder Datei mit der Ausschreibung."
 
-#: parts/meta-boxes/mec-om-meta-fields-metabox.php:107
+#: parts/meta-boxes/mec-om-meta-fields-metabox.php:97
 msgid "Full URL of the page or file with the event registration."
 msgstr "Link zur Seite oder Datei mit der Meldung."
 
-#: parts/meta-boxes/mec-om-meta-fields-metabox.php:141
+#: parts/meta-boxes/mec-om-meta-fields-metabox.php:133
 msgid "Full URL of the page or file with the event results with splits."
 msgstr ""
 "Link zur Seite oder Datei mit den Ergebnissen inklusive der Splittzeiten."
 
-#: parts/meta-boxes/mec-om-meta-fields-metabox.php:124
+#: parts/meta-boxes/mec-om-meta-fields-metabox.php:121
 msgid "Full URL of the page or file with the event results."
 msgstr "Link zur Seite oder Datei mit den Ergebnissen."
 
@@ -103,20 +119,32 @@ msgstr "Link zur Seite oder Datei mit den Ergebnissen."
 msgid "Full URL of the page or file with the event."
 msgstr "Link zur Seite der Veranstaltung."
 
-#: parts/meta-boxes/mec-om-meta-fields-metabox.php:175
+#: parts/meta-boxes/mec-om-meta-fields-metabox.php:169
+msgid "Full URL of the page or file with the hygiene concept."
+msgstr "Link zur Seite oder Datei mit dem Hygienekonzept."
+
+#: parts/meta-boxes/mec-om-meta-fields-metabox.php:109
 msgid "Full URL of the page or file with the startlist."
 msgstr "Link zur Seite oder Datei mit der Startliste."
 
-#: parts/meta-boxes/mec-om-meta-fields-metabox.php:158
+#: parts/meta-boxes/mec-om-meta-fields-metabox.php:181
+msgid "Full URL of the page or file with the technical informations."
+msgstr "Link zur Seite oder Datei mit den Technischen Hinweisen."
+
+#: parts/meta-boxes/mec-om-meta-fields-metabox.php:157
 msgid "Full URL of the page with the RouteGadget page for this event."
 msgstr "Link zur RouteGadget-Seite zur Veranstaltung."
+
+#: upcoming-events-widget.php:154 events-table-widget.php:215
+msgid "H"
+msgstr "H"
 
 # keine Übersetzung nötig
 #. Author of the plugin
 msgid "Henry Jobst"
 msgstr "Henry Jobst"
 
-#: upcoming-events-widget.php:220 past-events-widget.php:198
+#: upcoming-events-widget.php:230 past-events-widget.php:202
 msgid "How Many:"
 msgstr "Anzahl der Einträge:"
 
@@ -125,12 +153,20 @@ msgstr "Anzahl der Einträge:"
 msgid "https://github.com/HenryJobst"
 msgstr "https://github.com/HenryJobst"
 
-#: events-table-widget.php:124
+#: parts/meta-boxes/mec-om-meta-fields-metabox.php:166
+msgid "Hygiene Concept"
+msgstr "Hygienekonzept"
+
+#: upcoming-events-widget.php:154 events-table-widget.php:215
+msgid "Hygienekonzept"
+msgstr "Hygienekonzept"
+
+#: events-table-widget.php:149
 msgid "Links"
 msgstr "Links"
 
-#: upcoming-events-widget.php:141 upcoming-events-widget.php:150 
-#: events-table-widget.php:190
+#: upcoming-events-widget.php:142 upcoming-events-widget.php:151 
+#: events-table-widget.php:212
 msgid "M"
 msgstr "M"
 
@@ -139,40 +175,40 @@ msgstr "M"
 msgid "MEC Addon Plugin"
 msgstr "MEC Addon Plugin"
 
-#: events-table-widget.php:120
+#: events-table-widget.php:145
 msgid "Meldetermin"
 msgstr "Meldetermin"
 
-#: upcoming-events-widget.php:150 events-table-widget.php:190
+#: upcoming-events-widget.php:151 events-table-widget.php:212
 msgid "Meldung"
 msgstr "Meldung"
 
-#: upcoming-events-widget.php:222 past-events-widget.php:200
+#: upcoming-events-widget.php:232 past-events-widget.php:204
 msgid "More Link:"
 msgstr "Alle Link:"
 
-#: upcoming-events-widget.php:221 past-events-widget.php:199
+#: upcoming-events-widget.php:231 past-events-widget.php:203
 msgid "More Text:"
 msgstr "Text für den \"mehr\"-Link"
 
-#: events-table-widget.php:218
+#: events-table-widget.php:252
 msgid "No events available."
 msgstr "Keine Veranstaltungen vorhanden."
 
-#: past-events-widget.php:17 past-events-widget.php:186
+#: past-events-widget.php:17 past-events-widget.php:190
 msgid "Past Events"
 msgstr "Wettkampf-Ergebnisse"
 
-#: upcoming-events-widget.php:211 past-events-widget.php:189
+#: upcoming-events-widget.php:221 past-events-widget.php:193
 msgid "Permalink to the page that show all events"
 msgstr "Permalink zur Seite die alle Veranstaltungen enthält"
 
 # Button Beschriftung: RouteGadget für den Wettkampf
-#: past-events-widget.php:131 events-table-widget.php:202
+#: past-events-widget.php:135 events-table-widget.php:236
 msgid "R"
 msgstr "R"
 
-#: parts/meta-boxes/mec-om-meta-fields-metabox.php:104
+#: parts/meta-boxes/mec-om-meta-fields-metabox.php:94
 msgid "Registration"
 msgstr "Meldung"
 
@@ -188,69 +224,85 @@ msgstr "Meldedatum in der Form 2021-01-31"
 msgid "Registration date of this event."
 msgstr "Meldedatum der Veranstaltung"
 
-#: parts/meta-boxes/mec-om-meta-fields-metabox.php:121
+#: parts/meta-boxes/mec-om-meta-fields-metabox.php:118
 msgid "Results"
 msgstr "Ergebnisse"
 
-#: parts/meta-boxes/mec-om-meta-fields-metabox.php:138
+#: parts/meta-boxes/mec-om-meta-fields-metabox.php:130
 msgid "Results with splits"
 msgstr "Ergebnisse mit Splittzeiten"
 
-#: past-events-widget.php:131 events-table-widget.php:202 
-#: parts/meta-boxes/mec-om-meta-fields-metabox.php:155
+#: past-events-widget.php:135 events-table-widget.php:236 
+#: parts/meta-boxes/mec-om-meta-fields-metabox.php:154
 msgid "RouteGadget"
 msgstr "RouteGadget"
 
-#: events-table-widget.php:122
+#: events-table-widget.php:147
 msgid "Rubrik"
 msgstr "Rubrik"
 
 # Button Beschriftung: Startliste für den Wettkampf
-#: upcoming-events-widget.php:153 events-table-widget.php:193
+#: upcoming-events-widget.php:163 events-table-widget.php:224
 msgid "S"
 msgstr "S"
 
-#: upcoming-events-widget.php:210 past-events-widget.php:188
+#: upcoming-events-widget.php:220 past-events-widget.php:192
 msgid "Show All"
 msgstr "Alle"
 
-#: upcoming-events-widget.php:224 past-events-widget.php:202 
-#: events-table-widget.php:268
+#: upcoming-events-widget.php:234 past-events-widget.php:206 
+#: events-table-widget.php:304
 msgid "Show Sports Type:"
 msgstr "Sport-Typ anzeigen:"
 
-#: upcoming-events-widget.php:225 past-events-widget.php:203 
-#: events-table-widget.php:269
+#: upcoming-events-widget.php:235 past-events-widget.php:207 
+#: events-table-widget.php:305
 msgid "Show Urls:"
 msgstr "Links anzeigen:"
 
 # Button Beschriftung: Splittzeiten für den Wettkampf
-#: past-events-widget.php:128 events-table-widget.php:199
+#: past-events-widget.php:129 events-table-widget.php:230
 msgid "Si"
 msgstr "Si"
 
-#: past-events-widget.php:128 events-table-widget.php:199
+#: parts/meta-boxes/mec-om-meta-fields-metabox.php:142
+msgid "Split times in WinSplits Online"
+msgstr "Splittzeiten in WinSplits Online"
+
+#: past-events-widget.php:129 events-table-widget.php:230
 msgid "Splittzeiten"
 msgstr "Splittzeiten"
 
-#: events-table-widget.php:121
+#: events-table-widget.php:146
 msgid "Sportart"
 msgstr "Sportart"
 
-#: parts/meta-boxes/mec-om-meta-fields-metabox.php:172
+#: parts/meta-boxes/mec-om-meta-fields-metabox.php:106
 msgid "Startlist"
 msgstr "Startliste"
 
-#: upcoming-events-widget.php:153 events-table-widget.php:193
+#: upcoming-events-widget.php:163 events-table-widget.php:224
 msgid "Startliste"
 msgstr "Startliste"
 
-#: events-table-widget.php:119
+#: upcoming-events-widget.php:157 events-table-widget.php:218
+msgid "T"
+msgstr "T"
+
+#: parts/meta-boxes/mec-om-meta-fields-metabox.php:178
+msgid "Technical Information"
+msgstr "Technische Hinweise"
+
+#: upcoming-events-widget.php:157 events-table-widget.php:218
+msgid "Technische Hinweise"
+msgstr "Technische Hinweise"
+
+#: events-table-widget.php:144
 msgid "Termin"
 msgstr "Termin"
 
-#: upcoming-events-widget.php:219 past-events-widget.php:197 
-#: events-table-widget.php:266
+#: upcoming-events-widget.php:229 past-events-widget.php:201 
+#: events-table-widget.php:302
 msgid "Title:"
 msgstr "Titel:"
 
@@ -274,44 +326,73 @@ msgstr "Sportart der Veranstaltung. (OL, MTB-O, Crosslauf, ...)"
 msgid "Type of this event. (Single, Relay, Team, ...)"
 msgstr "Disziplin der Veranstaltung. (Single, Relay, Team, ...)"
 
-#: upcoming-events-widget.php:17 upcoming-events-widget.php:208 
-#: events-table-widget.php:258
+#: upcoming-events-widget.php:17 upcoming-events-widget.php:218 
+#: events-table-widget.php:294
 msgid "Upcoming Events"
 msgstr "Kommende Veranstaltungen"
 
-#: parts/meta-boxes/mec-om-meta-fields-metabox.php:88
+#: parts/meta-boxes/mec-om-meta-fields-metabox.php:83
 msgid "URL of the announcement"
 msgstr "Link zur Ausschreibung"
+
+#: parts/meta-boxes/mec-om-meta-fields-metabox.php:191
+msgid "URL of the course informations"
+msgstr "Link zu den Bahndaten"
 
 #: parts/meta-boxes/mec-om-meta-fields-metabox.php:71
 msgid "URL of the event"
 msgstr "Link zur Veranstaltung"
 
-#: parts/meta-boxes/mec-om-meta-fields-metabox.php:105
+#: parts/meta-boxes/mec-om-meta-fields-metabox.php:143
+msgid "URL of the event in WinSplits Online"
+msgstr "Link zum Wettkampf in WinSplits Online"
+
+#: parts/meta-boxes/mec-om-meta-fields-metabox.php:145
+msgid "URL of the event in WinSplits Online to further analyze split times."
+msgstr ""
+"Link zum Wettkampf in WinSplits Online zur weiteren Analyse der Splittzeiten."
+
+#: parts/meta-boxes/mec-om-meta-fields-metabox.php:167
+msgid "URL of the hygiene concept"
+msgstr "Link zum Hygienekonzept"
+
+#: parts/meta-boxes/mec-om-meta-fields-metabox.php:95
 msgid "URL of the registration"
 msgstr "Link zur Meldung"
 
-#: parts/meta-boxes/mec-om-meta-fields-metabox.php:122
+#: parts/meta-boxes/mec-om-meta-fields-metabox.php:119
 msgid "URL of the results"
 msgstr "Link zu den Ergebnissen"
 
-#: parts/meta-boxes/mec-om-meta-fields-metabox.php:139
+#: parts/meta-boxes/mec-om-meta-fields-metabox.php:131
 msgid "URL of the results with splits"
 msgstr "Link zu den Ergebnissen mit Splittzeiten"
 
-#: parts/meta-boxes/mec-om-meta-fields-metabox.php:156
+#: parts/meta-boxes/mec-om-meta-fields-metabox.php:155
 msgid "URL of the RouteGadget page for this event"
 msgstr "Link zum RouteGadget"
 
-#: parts/meta-boxes/mec-om-meta-fields-metabox.php:173
+#: parts/meta-boxes/mec-om-meta-fields-metabox.php:107
 msgid "URL of the startlist"
 msgstr "Link zur Startliste"
 
-#: upcoming-events-widget.php:226 past-events-widget.php:204 
-#: events-table-widget.php:270
+#: parts/meta-boxes/mec-om-meta-fields-metabox.php:179
+msgid "URL of the technical informations"
+msgstr "Link zu den Technischen Hinweisen"
+
+#: upcoming-events-widget.php:236 past-events-widget.php:208 
+#: events-table-widget.php:306
 msgid "Urls Class:"
 msgstr "Link CSS-Class:"
 
-#: events-table-widget.php:123
+#: past-events-widget.php:132 events-table-widget.php:233
+msgid "W"
+msgstr "W"
+
+#: events-table-widget.php:148
 msgid "Wettkampf"
 msgstr "Wettkampf"
+
+#: past-events-widget.php:132 events-table-widget.php:233
+msgid "WinSplits"
+msgstr "WinSpits"
