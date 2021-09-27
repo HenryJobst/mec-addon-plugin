@@ -10,6 +10,9 @@ Add a upcoming events widget.
 
 == Changelog ==
 
+= 1.0.13 =
+* fix bugs in upcoming events widget
+
 = 1.0.12 =
 * reorder link buttons, open links in new tab
 
