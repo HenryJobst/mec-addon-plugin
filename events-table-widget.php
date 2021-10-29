@@ -47,16 +47,17 @@ class MEC_Addon_Events_Table_Widget extends WP_Widget {
             $link_class = $instance['urls_class'];
         }
 
-        if ($instance[$om_link_extra]) {
+        if ($extra_list_url = get_post_meta(get_the_ID(), $om_link_extra, true)) {
             $extra_title = __('Extra', 'mec-addon-plugin');
-            if ($instance[$om_title_extra]) {
-                $extra_title = $instance[$om_title_extra];
+            if ($extra_title_meta = get_post_meta(get_the_ID(), $om_title_extra, true)) {
+                $extra_title = $extra_title_meta;
             }
             $extra_symbol = __('E', 'mec-addon-plugin');
-            if ($instance[$om_symbol_extra]) {
-                $extra_symbol = $instance[$om_symbol_extra];
+            if ($extra_symbol_meta = get_post_meta(get_the_ID(), $om_symbol_extra, true)) {
+                $extra_symbol = $extra_symbol_meta;
             }
-            return ' ' . '<a class="'. $link_class .'" title="'. $extra_title . '" href="' . $instance[$om_link_extra] . '" target="_blank" rel="noopener external noreferrer">' . '<span>' . $extra_symbol . '</span>' . '</a>';
+
+            return ' ' . '<a class="'. $link_class .'" title="'. $extra_title . '" href="' . $extra_list_url . '" target="_blank" rel="noopener external noreferrer">' . '<span>' . $extra_symbol . '</span>' . '</a>';
         }
         
         return '';
@@ -242,13 +243,14 @@ class MEC_Addon_Events_Table_Widget extends WP_Widget {
                     if ($ci_results_url = get_post_meta(get_the_ID(), 'om_link_course_information', true)) {
                         echo $this->add_link_button($instance, $ci_results_url, __('B', 'mec-addon-plugin'), __('Bahndaten', 'mec-addon-plugin'));
                     }
+                    
+                    echo $this->add_extra_link_button($instance, 'om_link_extra_1', 'om_title_extra_1', 'om_symbol_extra_1');
+                    echo $this->add_extra_link_button($instance, 'om_link_extra_2', 'om_title_extra_2', 'om_symbol_extra_2');
+                    echo $this->add_extra_link_button($instance, 'om_link_extra_3', 'om_title_extra_3', 'om_symbol_extra_3');
+
                     if ($start_list_url = get_post_meta(get_the_ID(), 'om_link_startlist', true)) {
                         echo $this->add_link_button($instance, $start_list_url, __('S', 'mec-addon-plugin'), __('Startliste', 'mec-addon-plugin'));
                     }
-                    
-                    $this->add_extra_link_button($instance, 'om_link_extra_1', 'om_title_extra_1', 'om_symbol_extra_1');
-                    $this->add_extra_link_button($instance, 'om_link_extra_2', 'om_title_extra_2', 'om_symbol_extra_2');
-                    $this->add_extra_link_button($instance, 'om_link_extra_3', 'om_title_extra_3', 'om_symbol_extra_3');
 
                     if ($results_url = get_post_meta(get_the_ID(), 'om_link_results', true)) {
                         echo $this->add_link_button($instance, $results_url, __('E', 'mec-addon-plugin'), __('Ergebnisse', 'mec-addon-plugin'));
