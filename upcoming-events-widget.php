@@ -46,6 +46,23 @@ class MEC_Addon_Upcoming_Events extends WP_Widget {
         return $formated_event_date;
     }
 
+    private function add_extra_link_button(array $instance, string $om_link_extra, string $om_title_extra, string $om_symbol_extra): string
+    {
+        if ($extra_list_url = get_post_meta(get_the_ID(), $om_link_extra, true)) {
+            $extra_title = __('Extra', 'mec-addon-plugin');
+            if ($extra_title_meta = get_post_meta(get_the_ID(), $om_title_extra, true)) {
+                $extra_title = $extra_title_meta;
+            }
+            $extra_symbol = __('E', 'mec-addon-plugin');
+            if ($extra_symbol_meta = get_post_meta(get_the_ID(), $om_symbol_extra, true)) {
+                $extra_symbol = $extra_symbol_meta;
+            }
+            return $this->add_link_button($instance, $extra_list_url, $extra_symbol, $extra_title);
+        }
+
+        return '';
+    }
+
     /**
      * @param string $date_format date format
      * @return false|string
@@ -159,9 +176,15 @@ class MEC_Addon_Upcoming_Events extends WP_Widget {
                     if ($ci_results_url = get_post_meta(get_the_ID(), 'om_link_course_information', true)) {
                         $output = $output . $this->add_link_button($instance, $ci_results_url, __('B', 'mec-addon-plugin'), __('Bahndaten', 'mec-addon-plugin'));
                     }
+                    
+                    $output = $output . $this->add_extra_link_button($instance, 'om_link_extra_1', 'om_title_extra_1', 'om_symbol_extra_1');
+                    $output = $output . $this->add_extra_link_button($instance, 'om_link_extra_2', 'om_title_extra_2', 'om_symbol_extra_2');
+                    $output = $output . $this->add_extra_link_button($instance, 'om_link_extra_3', 'om_title_extra_3', 'om_symbol_extra_3');
+                    
                     if ($start_list_url = get_post_meta(get_the_ID(), 'om_link_startlist', true)) {
                         $output = $output . $this->add_link_button($instance, $start_list_url, __('S', 'mec-addon-plugin'), __('Startliste', 'mec-addon-plugin'));
                     }
+                    
                     $output = $output . '</span>';
                 }
 

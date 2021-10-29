@@ -195,3 +195,111 @@ piklist('field', array(
       'class' => 'regular-text',
     )
   ));
+
+  piklist('field', array(
+    'type' => 'text'
+    ,'field' => 'om_link_extra_1'
+    ,'label' => __('Extra link 1', 'mec-addon-plugin')
+    ,'description' => __('URL of the extra link 1', 'mec-addon-plugin')
+    ,'value' => null
+    ,'help' => __('Full URL of the page or file with extra informations 1.','mec-addon-plugin')
+    ,'attributes' => array(
+      'class' => 'regular-text',
+    )
+  ));
+  
+  piklist('field', array(
+    'type' => 'text'
+    ,'field' => 'om_symbol_extra_1'
+    ,'label' => __('Extra symbol 1', 'mec-addon-plugin')
+    ,'description' => __('Short text for the extra informations 1', 'mec-addon-plugin')
+    ,'value' => null
+    ,'help' => __('Short text for the extra informations 1.','mec-addon-plugin')
+    ,'attributes' => array(
+      'class' => 'regular-text',
+    )
+  ));
+  
+  piklist('field', array(
+    'type' => 'text'
+    ,'field' => 'om_title_extra_1'
+    ,'label' => __('Extra title 1', 'mec-addon-plugin')
+    ,'description' => __('Title for the extra informations 1', 'mec-addon-plugin')
+    ,'value' => null
+    ,'help' => __('Title text for the extra informations 1.','mec-addon-plugin')
+    ,'attributes' => array(
+      'class' => 'regular-text',
+    )
+  ));
+  
+  piklist('field', array(
+    'type' => 'text'
+    ,'field' => 'om_link_extra_2'
+    ,'label' => __('Extra link 2', 'mec-addon-plugin')
+    ,'description' => __('URL of the extra link 2', 'mec-addon-plugin')
+    ,'value' => null
+    ,'help' => __('Full URL of the page or file with extra informations 2.','mec-addon-plugin')
+    ,'attributes' => array(
+      'class' => 'regular-text',
+    )
+  ));
+  
+  piklist('field', array(
+    'type' => 'text'
+    ,'field' => 'om_symbol_extra_2'
+    ,'label' => __('Extra symbol 2', 'mec-addon-plugin')
+    ,'description' => __('Short text for the extra informations 2', 'mec-addon-plugin')
+    ,'value' => null
+    ,'help' => __('Short text for the extra informations 2.','mec-addon-plugin')
+    ,'attributes' => array(
+      'class' => 'regular-text',
+    )
+  ));
+  
+  piklist('field', array(
+    'type' => 'text'
+    ,'field' => 'om_title_extra_2'
+    ,'label' => __('Extra title 2', 'mec-addon-plugin')
+    ,'description' => __('Title for the extra informations 2', 'mec-addon-plugin')
+    ,'value' => null
+    ,'help' => __('Title text for the extra informations 2.','mec-addon-plugin')
+    ,'attributes' => array(
+      'class' => 'regular-text',
+    )
+  ));
+  
+  piklist('field', array(
+    'type' => 'text'
+    ,'field' => 'om_link_extra_3'
+    ,'label' => __('Extra link 3', 'mec-addon-plugin')
+    ,'description' => __('URL of the extra link 3', 'mec-addon-plugin')
+    ,'value' => null
+    ,'help' => __('Full URL of the page or file with extra informations 3.','mec-addon-plugin')
+    ,'attributes' => array(
+      'class' => 'regular-text',
+    )
+  ));
+  
+  piklist('field', array(
+    'type' => 'text'
+    ,'field' => 'om_symbol_extra_3'
+    ,'label' => __('Extra symbol 3', 'mec-addon-plugin')
+    ,'description' => __('Short text for the extra informations 3', 'mec-addon-plugin')
+    ,'value' => null
+    ,'help' => __('Short text for the extra informations 3.','mec-addon-plugin')
+    ,'attributes' => array(
+      'class' => 'regular-text',
+    )
+  ));
+  
+  piklist('field', array(
+    'type' => 'text'
+    ,'field' => 'om_title_extra_3'
+    ,'label' => __('Extra title 3', 'mec-addon-plugin')
+    ,'description' => __('Title for the extra informations 3', 'mec-addon-plugin')
+    ,'value' => null
+    ,'help' => __('Title text for the extra informations 3.','mec-addon-plugin')
+    ,'attributes' => array(
+      'class' => 'regular-text',
+    )
+  ));

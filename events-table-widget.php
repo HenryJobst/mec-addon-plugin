@@ -39,6 +39,28 @@ class MEC_Addon_Events_Table_Widget extends WP_Widget {
         }
         return ' ' . '<a class="'. $link_class .'" title="'. $title_text . '" href="' . $url . '" target="_blank" rel="noopener external noreferrer">' . '<span>' . $button_text . '</span>' . '</a>';
     }
+    
+    private function add_extra_link_button(array $instance, string $om_link_extra, string $om_title_extra, string $om_symbol_extra): string
+    {
+        $link_class = 'button';
+        if ($instance['urls_class']) {
+            $link_class = $instance['urls_class'];
+        }
+
+        if ($instance[$om_link_extra]) {
+            $extra_title = __('Extra', 'mec-addon-plugin');
+            if ($instance[$om_title_extra]) {
+                $extra_title = $instance[$om_title_extra];
+            }
+            $extra_symbol = __('E', 'mec-addon-plugin');
+            if ($instance[$om_symbol_extra]) {
+                $extra_symbol = $instance[$om_symbol_extra];
+            }
+            return ' ' . '<a class="'. $link_class .'" title="'. $extra_title . '" href="' . $instance[$om_link_extra] . '" target="_blank" rel="noopener external noreferrer">' . '<span>' . $extra_symbol . '</span>' . '</a>';
+        }
+        
+        return '';
+    }
 
     private function get_formated_date(string $date_field, string $date_format): string
     {
@@ -223,6 +245,11 @@ class MEC_Addon_Events_Table_Widget extends WP_Widget {
                     if ($start_list_url = get_post_meta(get_the_ID(), 'om_link_startlist', true)) {
                         echo $this->add_link_button($instance, $start_list_url, __('S', 'mec-addon-plugin'), __('Startliste', 'mec-addon-plugin'));
                     }
+                    
+                    $this->add_extra_link_button($instance, 'om_link_extra_1', 'om_title_extra_1', 'om_symbol_extra_1');
+                    $this->add_extra_link_button($instance, 'om_link_extra_2', 'om_title_extra_2', 'om_symbol_extra_2');
+                    $this->add_extra_link_button($instance, 'om_link_extra_3', 'om_title_extra_3', 'om_symbol_extra_3');
+
                     if ($results_url = get_post_meta(get_the_ID(), 'om_link_results', true)) {
                         echo $this->add_link_button($instance, $results_url, __('E', 'mec-addon-plugin'), __('Ergebnisse', 'mec-addon-plugin'));
                     }

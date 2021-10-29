@@ -10,6 +10,9 @@ Add a upcoming events widget.
 
 == Changelog ==
 
+= 1.0.14 =
+* add new meta fields extra 1-3 (link, symbol, title)
+
 = 1.0.13 =
 * fix bugs in upcoming events widget
 
