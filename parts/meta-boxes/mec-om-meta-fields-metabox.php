@@ -234,6 +234,18 @@ piklist('field', array(
   
   piklist('field', array(
     'type' => 'text'
+    ,'field' => 'om_mode_extra_1'
+    ,'label' => __('Extra mode 1', 'mec-addon-plugin')
+    ,'description' => __('Mode for the extra informations 1', 'mec-addon-plugin')
+    ,'value' => '2'
+    ,'help' => __('Mode for the extra informations 1. 1 - show in past, 2 - show in future, 3 - show allways','mec-addon-plugin')
+    ,'attributes' => array(
+      'class' => 'regular-text',
+    )
+  ));
+  
+  piklist('field', array(
+    'type' => 'text'
     ,'field' => 'om_link_extra_2'
     ,'label' => __('Extra link 2', 'mec-addon-plugin')
     ,'description' => __('URL of the extra link 2', 'mec-addon-plugin')
@@ -270,6 +282,18 @@ piklist('field', array(
   
   piklist('field', array(
     'type' => 'text'
+    ,'field' => 'om_mode_extra_2'
+    ,'label' => __('Extra mode 2', 'mec-addon-plugin')
+    ,'description' => __('Mode for the extra informations 2', 'mec-addon-plugin')
+    ,'value' => '2'
+    ,'help' => __('Mode for the extra informations 2. 1 - show in past, 2 - show in future, 3 - show allways','mec-addon-plugin')
+    ,'attributes' => array(
+      'class' => 'regular-text',
+    )
+  ));
+  
+  piklist('field', array(
+    'type' => 'text'
     ,'field' => 'om_link_extra_3'
     ,'label' => __('Extra link 3', 'mec-addon-plugin')
     ,'description' => __('URL of the extra link 3', 'mec-addon-plugin')
@@ -299,6 +323,18 @@ piklist('field', array(
     ,'description' => __('Title for the extra informations 3', 'mec-addon-plugin')
     ,'value' => null
     ,'help' => __('Title text for the extra informations 3.','mec-addon-plugin')
+    ,'attributes' => array(
+      'class' => 'regular-text',
+    )
+  ));
+  
+  piklist('field', array(
+    'type' => 'text'
+    ,'field' => 'om_mode_extra_3'
+    ,'label' => __('Extra mode 3', 'mec-addon-plugin')
+    ,'description' => __('Mode for the extra informations 3', 'mec-addon-plugin')
+    ,'value' => '2'
+    ,'help' => __('Mode for the extra informations 3. 1 - show in past, 2 - show in future, 3 - show allways','mec-addon-plugin')
     ,'attributes' => array(
       'class' => 'regular-text',
     )

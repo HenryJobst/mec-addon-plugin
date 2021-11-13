@@ -10,6 +10,9 @@ Add a upcoming events widget.
 
 == Changelog ==
 
+= 1.0.15 =
+* add mode for the extra meta fields
+
 = 1.0.14 =
 * add new meta fields extra 1-3 (link, symbol, title)
 

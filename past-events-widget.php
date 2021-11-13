@@ -32,6 +32,29 @@ class MEC_Addon_Past_Events extends WP_Widget {
         }
         return ' ' . '<a class="'. $link_class .'" title="'. $title_text . '" href="' . $url . '" target="_blank" rel="noopener external noreferrer">' . '<span>' . $button_text . '</span>' . '</a>';
     }
+    
+    private function add_extra_link_button(array $instance, string $om_link_extra, string $om_title_extra, string $om_symbol_extra, string $om_mode_extra): string
+    {
+        if ($extra_list_url = get_post_meta(get_the_ID(), $om_link_extra, true)) {
+            if ($extra_mode = get_post_meta(get_the_ID(), $om_mode_extra, true)) {
+                if ($extra_mode != '1' || $extra_mode != '3') {
+                    // 1 - show in past, 2 - show in future, 3 - show allways
+                    return '';
+                }
+            }
+            $extra_title = __('Extra', 'mec-addon-plugin');
+            if ($extra_title_meta = get_post_meta(get_the_ID(), $om_title_extra, true)) {
+                $extra_title = $extra_title_meta;
+            }
+            $extra_symbol = __('E', 'mec-addon-plugin');
+            if ($extra_symbol_meta = get_post_meta(get_the_ID(), $om_symbol_extra, true)) {
+                $extra_symbol = $extra_symbol_meta;
+            }
+            return $this->add_link_button($instance, $extra_list_url, $extra_symbol, $extra_title);
+        }
+
+        return '';
+    }
 
     /**
      * @param string $date_format date format
@@ -134,6 +157,11 @@ class MEC_Addon_Past_Events extends WP_Widget {
                     if ($rg_results_url = get_post_meta(get_the_ID(), 'om_link_routegadget', true)) {
                         $output = $output . $this->add_link_button($instance, $rg_results_url, __('R', 'mec-addon-plugin'), __('RouteGadget', 'mec-addon-plugin'));
                     }
+                    
+                    $output = $output . $this->add_extra_link_button($instance, 'om_link_extra_1', 'om_title_extra_1', 'om_symbol_extra_1', 'om_mode_extra_1');
+                    $output = $output . $this->add_extra_link_button($instance, 'om_link_extra_2', 'om_title_extra_2', 'om_symbol_extra_2', 'om_mode_extra_2');
+                    $output = $output . $this->add_extra_link_button($instance, 'om_link_extra_3', 'om_title_extra_3', 'om_symbol_extra_3', 'om_mode_extra_3');
+
                     $output = $output . '</span>';
                 }
 
