@@ -37,7 +37,7 @@ class MEC_Addon_Past_Events extends WP_Widget {
     {
         if ($extra_list_url = get_post_meta(get_the_ID(), $om_link_extra, true)) {
             if ($extra_mode = get_post_meta(get_the_ID(), $om_mode_extra, true)) {
-                if ($extra_mode != '1' || $extra_mode != '3') {
+                if ($extra_mode != '1' && $extra_mode != '3') {
                     // 1 - show in past, 2 - show in future, 3 - show allways
                     return '';
                 }
