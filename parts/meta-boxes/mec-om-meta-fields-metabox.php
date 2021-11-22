@@ -233,15 +233,16 @@ piklist('field', array(
   ));
   
   piklist('field', array(
-    'type' => 'text'
+    'type' => 'radio'
     ,'field' => 'om_mode_extra_1'
     ,'label' => __('Extra mode 1', 'mec-addon-plugin')
     ,'description' => __('Mode for the extra informations 1', 'mec-addon-plugin')
-    ,'value' => '2'
-    ,'help' => __('Mode for the extra informations 1. 1 - show in past, 2 - show in future, 3 - show allways','mec-addon-plugin')
-    ,'attributes' => array(
-      'class' => 'regular-text',
+    ,'choices' => array(
+      '1' => __('Show only for events in past', 'mec-addon-plugin'),
+      '2' => __('Show only for upcomming events', 'mec-addon-plugin'),
+      '3' => __('Show for all events', 'mec-addon-plugin')
     )
+    ,'help' => __('Mode for the extra informations 1.','mec-addon-plugin')
   ));
   
   piklist('field', array(
@@ -281,15 +282,16 @@ piklist('field', array(
   ));
   
   piklist('field', array(
-    'type' => 'text'
+    'type' => 'radio'
     ,'field' => 'om_mode_extra_2'
     ,'label' => __('Extra mode 2', 'mec-addon-plugin')
     ,'description' => __('Mode for the extra informations 2', 'mec-addon-plugin')
-    ,'value' => '2'
-    ,'help' => __('Mode for the extra informations 2. 1 - show in past, 2 - show in future, 3 - show allways','mec-addon-plugin')
-    ,'attributes' => array(
-      'class' => 'regular-text',
+    ,'choices' => array(
+      '1' => __('Show only for events in past', 'mec-addon-plugin'),
+      '2' => __('Show only for upcomming events', 'mec-addon-plugin'),
+      '3' => __('Show for all events', 'mec-addon-plugin')
     )
+    ,'help' => __('Mode for the extra informations 2.','mec-addon-plugin')
   ));
   
   piklist('field', array(
@@ -329,13 +331,14 @@ piklist('field', array(
   ));
   
   piklist('field', array(
-    'type' => 'text'
+    'type' => 'radio'
     ,'field' => 'om_mode_extra_3'
     ,'label' => __('Extra mode 3', 'mec-addon-plugin')
     ,'description' => __('Mode for the extra informations 3', 'mec-addon-plugin')
-    ,'value' => '2'
-    ,'help' => __('Mode for the extra informations 3. 1 - show in past, 2 - show in future, 3 - show allways','mec-addon-plugin')
-    ,'attributes' => array(
-      'class' => 'regular-text',
+    ,'choices' => array(
+      '1' => __('Show only for events in past', 'mec-addon-plugin'),
+      '2' => __('Show only for upcomming events', 'mec-addon-plugin'),
+      '3' => __('Show for all events', 'mec-addon-plugin')
     )
+    ,'help' => __('Mode for the extra informations 3.','mec-addon-plugin')
   ));
