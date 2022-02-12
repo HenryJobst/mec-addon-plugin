@@ -9,6 +9,9 @@ This plugin adds a upcoming events widget for the modern events calendar lite pl
 Add a upcoming events widget.
 
 == Changelog ==
+= 1.0.17
+* add logo reference for cross runs in widgets
+* fix errors in previous version
 
 = 1.0.16 =
 * add logo reference for Ski-OL in widgets

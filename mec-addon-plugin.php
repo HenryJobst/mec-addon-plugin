@@ -2,14 +2,14 @@
 /*
 Plugin Name: MEC Addon Plugin
 Description: Add some special enhancements to modern events calendar lite plugin.
-Version:     1.0.16
+Version:     1.0.17
 Author:      Henry Jobst
 Author URI: https://github.com/HenryJobst
 Text Domain: mec-addon-plugin
 License: MIT License
 Plugin Type: Piklist
 
-Copyright (c) 2021 {Author}
+Copyright (c) 2022 {Author}
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
