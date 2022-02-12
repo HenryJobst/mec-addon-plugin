@@ -10,6 +10,9 @@ Add a upcoming events widget.
 
 == Changelog ==
 
+= 1.0.16 =
+* add logo reference for Ski-OL in widgets
+
 = 1.0.15 =
 * add mode for the extra meta fields
 
